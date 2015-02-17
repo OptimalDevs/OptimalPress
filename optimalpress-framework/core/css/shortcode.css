@@ -1,0 +1,206 @@
+/*
+*	Style for Shortcodes Generator
+*
+*/
+
+.op-wrapper a {
+	text-decoration: none;
+}
+
+.op-hide{
+	display: none;
+}
+
+/*
+*	Modal Structure
+*
+*/
+.op-modal-overlay{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	background: rgba(0,0,0,.8);
+	z-index: 9998;
+	display: none;
+	top: 0;
+	left: 0;
+	cursor:pointer;
+}
+
+.op-modal .op-close-modal{
+	font-size: 22px;
+	line-height: .5;
+	position: absolute;
+	top: 8px;
+	right: 11px;
+	color: #aaa;
+	text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.op-modal .op-current{
+	display: block !Important;
+}
+
+.op-modal .op-sub-menu-list{
+	display:none;
+}
+
+.op-modal {
+	visibility: hidden;
+	top: 100px;
+	left: 50%;
+	margin-left: -300px;
+	width: 520px;
+	background: #fff;
+	position: absolute;
+	z-index: 101;
+	padding: 30px 40px 34px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	z-index: 9999;
+}
+
+.op-modal {
+	top: 60px;
+	bottom: 60px;
+	position: fixed;
+	padding-top: 4rem;
+	width: 800px;
+	margin-left: -440px;
+}
+
+.op-modal h1 {
+	font-size: 1.3rem;
+	line-height: 2rem;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	margin: 1.5rem 0 .5rem;
+}
+
+.op-modal .op-scroll-container {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.op-modal .op-wrapper {
+	display: table;
+	width: 100%;
+	padding-top: 10px;
+	table-layout: fixed;
+	height: 100%;
+}
+
+/*
+*	Left Side: Menu
+*
+*/
+.op-modal .op-wrapper .op-menu {
+	display: table-cell;
+	vertical-align: top;
+	width: 150px;
+	border-right: 1px solid #dfdfdf;
+}
+
+/*
+*	Right Side
+*
+*/
+.op-modal .op-wrapper .op-main {
+	display: table-cell;
+	padding-left: 20px;
+	padding-right: 10px;
+	vertical-align: top;
+	width: 100%;
+}
+
+/*
+*	Headings
+*
+*/
+.op-wrapper .op-main .op-element-heading {
+	cursor: default;
+	margin: 0;
+}
+
+.op-wrapper .op-main .op-element-heading span {
+	color: inherit;
+	font-weight: bold;
+	padding: 8px 10px;
+	font-size: 12px;
+	display: block;
+	cursor: pointer;
+}
+
+.op-wrapper .op-main .op-element {
+	margin-bottom: 10px;
+}
+
+.op-wrapper .op-fields {
+	border-bottom: 1px dashed #333;
+	padding-bottom: 15px;
+}
+
+/*
+*	Buttons Action: Insert Cancel
+*
+*/
+.op-wrapper .op-action {
+	border-top: 1px solid #fff;
+	padding-top: 15px;
+	text-align: right;
+}
+
+/*
+* General Structure fields
+*
+*/
+
+.op-modal .op-hide {
+	display: none;
+}
+
+.op-modal .op-field {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.op-modal .op-field .label label {
+	cursor: default;
+	font-weight: bold;
+	display: block;
+}
+
+.op-modal .op-field .label {
+	display: table-cell;
+	padding: 10px 15px;
+	vertical-align: top;
+	width: 25%;
+}
+
+.op-modal .op-field .field {
+	display: table-cell;
+	padding: 10px 10px;
+	width: 75%;
+	position: relative;
+}
+
+.op-modal *, .op-modal *:before, .op-modal *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.op-modal .op-field .field .input {
+	position: relative;
+}
+

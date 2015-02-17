@@ -1,0 +1,83 @@
+/*
+* Style for General Structure in Metaboxes
+*
+*/
+
+.op-metabox .op-hide {
+	display: none;
+}
+
+.op-metabox .op-field {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.op-metabox .op-field .label label {
+	cursor: default;
+	font-weight: bold;
+	display: block;
+}
+
+.op-metabox .op-field .label {
+	display: table-cell;
+	padding: 10px 15px;
+	vertical-align: top;
+	width: 20%;
+}
+
+.op-metabox .op-field .field {
+	display: table-cell;
+	padding: 10px 10px;
+	width: 80%;
+	position: relative;
+}
+
+.op-metabox *, .op-metabox *:before, .op-metabox *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.op-metabox .op-field .field .input {
+	position: relative;
+}
+
+@media only screen and (max-width: 640px) {
+	.op-metabox .op-field, .op-metabox .op-field .label, .op-metabox .op-field .field {
+		display: block;
+		width: auto;
+		clear: both;
+	}
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1132px) {
+	.op-metabox .op-field, .op-metabox .op-field .label, .op-metabox .op-field .field {
+		display: block;
+		width: auto;
+		clear: both;
+	}
+}
+
+/*
+*
+*	Right Metaboxes
+**/
+
+#postbox-container-1 .op-metabox .op-field {
+	margin: 15px 0;
+}
+
+#postbox-container-1 .op-metabox .op-field, #postbox-container-1 .op-metabox .op-field .label, #postbox-container-1 .op-metabox .op-field .field {
+	display: block;
+	width: auto;
+	clear: both;
+}
+
+#postbox-container-1 .op-metabox .op-field .label, #postbox-container-1 .op-metabox .op-field .field {
+	padding: 0 0 5px;
+}
+

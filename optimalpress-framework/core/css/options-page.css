@@ -1,0 +1,226 @@
+
+/*
+*	Style for Option Page Structure
+*
+*/
+.op-wrap .op-current{
+	display: block !Important;
+}
+
+.op-wrap .op-panel{
+	display: none;
+	padding: 20px;
+}
+
+#op-wrap .op-option-panel {
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	color: #666;
+	display: table;
+	height: auto;
+	margin-top: 15px;
+	min-height: 100%;
+	max-width: 1024px;
+	min-width: 400px;
+	position: relative;
+	width: 100%;
+}
+
+/*
+*	Left side: Menus
+*
+*/
+.op-wrap .op-left-panel {
+	background-color: #222;
+	color: #fff;
+	border-radius: 3px 0 0 3px;
+	border-right: 1px solid #ddd;
+	display: table-cell;
+	position: relative;
+	vertical-align: top;
+	width: 25%;
+}
+
+.op-wrap .op-menus {
+	margin-bottom: 50px;
+}
+
+.op-wrap .op-menus .op-current {
+	background-color: #0074a2;
+}
+
+.op-wrap .op-menus ul.op-menu-level-1>li{
+	margin: 0;
+}
+
+.op-wrap .op-menus ul.op-menu-level-1>li>a i {
+	width: 30px;
+}
+
+.op-wrap .op-menus a i {
+	display: table-cell;
+	font-size: 14px;
+	padding: 15px 0 15px 25px;
+}
+
+.op-wrap .op-menus a {
+	color: #666;
+	display: table;
+	line-height: 20px;
+	position: relative;
+	text-decoration: none;
+	width: 100%;
+	color: #fff;
+}
+
+.op-wrap .op-menus a span {
+	display: table-cell;
+	padding: 15px 25px 15px 40px;
+	
+}
+
+.op-wrap .op-menus ul a i+span {
+	padding-left: 10px !important;
+}
+
+/*
+*	Right Side: Options Panel
+*
+*/
+
+.op-wrap .op-panel>h2 {
+	margin: 10px 0 30px;
+	padding: 0;
+}
+
+.op-wrap .op-panel>h2 span {
+	padding: 0 15px;
+	display: inline-block;
+}
+
+.op-wrap .op-submit{
+	overflow: hidden;
+	padding: 20px;
+}
+
+.op-wrap .op-submit .op-save {
+	float: right;
+}
+
+
+.op-wrap .op-field .label label {
+	cursor: default;
+	display: block;
+	font-weight: bold;
+}
+
+/*
+* General Structure fields
+*
+*/
+
+.op-option-form .op-hide {
+	display: none !important;
+}
+
+.op-option-form  .op-field {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.op-option-form  .op-field .label label {
+	cursor: default;
+	font-weight: bold;
+	display: block;
+}
+
+.op-option-form  .op-field .label {
+	display: table-cell;
+	padding: 10px 15px;
+	vertical-align: top;
+	width: 25%;
+}
+
+.op-option-form  .op-field .field {
+	display: table-cell;
+	padding: 10px 10px;
+	width: 75%;
+	position: relative;
+}
+
+
+.op-option-form  *, .op-option-form  *:before, .op-option-form  *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.op-wrap .op-option-panel *, .op-wrap .op-option-panel *:before, .op-wrap .op-option-panel *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+.op-option-form  .op-field .field .input {
+	position: relative;
+}
+
+/*
+*	Section
+*
+*/
+
+.op-wrap .op-section {
+	background-color: #fff;
+	margin-top: -1px;
+	padding: 30px 0 20px;
+	position: relative;
+	width: 100%;
+}
+
+.op-wrap .op-section>h3 {
+	background-color: #fff;
+	color: #0074a2;
+	font-size: 12px;
+	line-height: 1em;
+	padding: 4px 10px;
+	margin: 20px 0 0 20px;
+	position: absolute;
+	top: 0;
+	text-transform: uppercase;
+	z-index: 1;
+}
+
+.op-wrap .op-section .op-controls {
+	border-radius: 3px;
+	border: 1px solid #eee;
+	padding-top: 10px;
+	position: relative;
+	width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+	.op-left-panel {
+		display: none !important;
+	}
+	.op-panel{
+		display: block !important;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	.op-option-form  .op-field, .op-option-form  .op-field .label, .op-option-form .op-field .field {
+		display: block;
+		width: auto;
+		clear: both;
+	}
+}
