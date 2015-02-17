@@ -1,4 +1,6 @@
 # OptimalPress
-A Framewrok for WordPress Themes
+A Framewrok for WordPress Themes.
+
+Actually in alpha development.
 
 # Features
