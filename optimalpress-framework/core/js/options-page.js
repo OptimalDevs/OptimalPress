@@ -1,22 +1,19 @@
-
 /**
  * Options page javascript
  *
- * Este script se encarga de la parte de administración de las opciones del theme
- * Cambiar entre tabs y guardar las opciones por Ajax.
+ * This script is responsible for the administration side of theme options
+ * Switch between tabs and save settings by Ajax.
  */
-
 jQuery( window ).load(function() {
 	
-	//LLama a la función que se encarga de las dependencias
+	//Call function that handles dependencies.
 	
 	if( optimalpressData.dependency ){
 		opInitDependency( optimalpressData.dependency );
 	}		
 	/*
-	*	Menu set tabs when pages reload
-	*
-	*/	
+	 * Menu set tabs when pages reload
+	 */	
 	jQuery( '.op-panel' ).removeClass( 'op-current' );
 	jQuery( '.op-menus li' ).removeClass( 'op-current' );
 	
@@ -33,9 +30,8 @@ jQuery( window ).load(function() {
 	}
 	
 	/*
-	*	Menu change tabs
-	*
-	*/
+	 * Menu change tabs
+	 */
 	jQuery( '.op-menu-goto' ).on( 'click', function( e ) {
 
 		e.preventDefault(); //si hago esto no cambia el anchor pero ya no se produce el salto
@@ -49,9 +45,8 @@ jQuery( window ).load(function() {
 	});
 	
 	/*
-	*	Ajax: Save Options
-	*
-	*/
+	 * Ajax: Save Options
+	 */
 	jQuery( '.op-save' ).on( 'click', function( e ) {
 	
 		e.preventDefault();
@@ -67,7 +62,7 @@ jQuery( window ).load(function() {
 			.done ( function( data ) {
 
 				console.log( data.message );
-				location.reload();//Recargar despues de ajax??
+				location.reload(); //Reload after Ajax??
 				
 			} )		
 			.fail( function( jqXHR, textStatus, errorThrown ) {
