@@ -1,11 +1,9 @@
 /*
- * Dependencies
+ * Dependencies.
  *
- * Recorre todas las dependencias y crea los eventos necesarios para
- * mostrar u ocultar cada control
+ * Iterate all dependencies and creates events to show or hide each control.
  *
- * @param Array 	opDependencies	The array of dependencies
- *
+ * @param Array 	opDependencies	The array of dependencies.
  */
 function opInitDependency( opDependencies ) {
 	
@@ -17,7 +15,7 @@ function opInitDependency( opDependencies ) {
 			
 			var dependency = opDependency.dependencies[j];
 			
-			//Dependencias para Shortcodes
+			//Dependencies for Shortcode Generator
 			if( dependency.shortcode_group ) {
 				
 				var dependsOfField	= jQuery( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.depends_of );
@@ -25,7 +23,7 @@ function opInitDependency( opDependencies ) {
 				opOnLoadDependency( dependsOfField, opField, dependency.values );
 				OpCreateDependencyEvents( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.depends_of, opField, dependency.values, false );
 				
-			}//Dependencias para grupos 
+			}//Dependencies for Groups 
 			else if( dependency.group ) { 
 			
 				var dependsOfFields	= jQuery( '#' + opDependency.id + ' .op_group-' + dependency.group + ' .' + dependency.group + '-' + dependency.depends_of );
@@ -41,8 +39,7 @@ function opInitDependency( opDependencies ) {
 				
 				});
 				
-				
-			} //Dependencias normales
+			} //Normal dependencies
 			else { 
 
 				var dependsOfField	= jQuery( 'input[name*="' + dependency.depends_of  + '"], select[name*="' + dependency.depends_of  + '"], textarea[name*="' + dependency.depends_of  + '"]' );
@@ -60,12 +57,11 @@ function opInitDependency( opDependencies ) {
 /*
  * Dependencies OnLoad
  *
- * Efectua las dependencias al cargar la página.
+ * Performs dependencies on page load.
  *
- * @param jQueryObject 	dependsOfField		Campo del que depende
- * @param jQueryObject	opField				Campo da mostrar u ocultar
- * @param mixed 		dependencyValues	Valor por el que se tiene que comprobar para mostrar o no el campo evaluado
- *
+ * @param jQueryObject 	dependsOfField		Dependent field.
+ * @param jQueryObject	opField				Field to show or hide.
+ * @param mixed 		dependencyValues	Value that must be checked to display or not the field evaluated.
  */
 function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 
@@ -104,13 +100,12 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 			}
 			break;
 	}
-	
-	
-	//Si el campo del que depende es un array
+		
+	//If the dependent field is an array.
 	
 	if ( jQuery.isArray( fieldValues ) ) {
 		
-		//Si los valores de las dependencias son arrays
+		//If the value of the dependencies is an array
 		if ( jQuery.isArray( dependencyValues ) ) {
 			
 			opField.hide();
@@ -122,7 +117,7 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 				}
 				
 			}
-		//Si el valor de las dependencias no son arrays	
+		//If the value of the dependencies isn't an array (single value)
 		}else{
 		
 			if( ( fieldValues.indexOf( dependencyValues ) < 0 && dependencyValues != '{{not-empty}}' ) || ( fieldValues.length == 0 && dependencyValues == '{{not-empty}}' )  ) {
@@ -132,10 +127,10 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 		}
 		
 	}
-	//Si el campo del que depende es un valor single
+	//If the dependent field is a single value.
 	else{
 		
-		//Si los valores de las dependencias son arrays
+		//If the value of the dependencies is an array
 		if ( jQuery.isArray( dependencyValues ) ) {
 		
 			var sw = 0;
@@ -152,7 +147,7 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 			
 			
 		}
-		//Si el valor de las dependencias es un valor single
+		//If the value of the dependencies isn't an array (single value)
 		else{
 
 			if( ( fieldValues != dependencyValues && dependencyValues != '{{not-empty}}' ) || ( fieldValues.length == 0 && dependencyValues == '{{not-empty}}' ) ) {
@@ -161,30 +156,27 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 			
 		}
 	}
-
-		
 	
 }
-
 
 /*
  * Dependencies onChange
  *
- * Efectua las dependencias cuando se produce un evento en alguno de los campos de los que se depende.
+ * Performs dependencies when a change occurs in any of the fields that it depends.
  *
- * @param jQueryObject 	dependsOfField		Campo del que depende
- * @param jQueryObject	field				Campo da mostrar u ocultar
- * @param mixed 		dependencyValue		Valor por el que se tiene que comprobar para mostrar o no el campo evaluado
- * @param bool 			group				Indica si se esta evaluando una dependencia de un grupo o si es de un campo singular.
- *
+ * @param jQueryObject 	dependsOfField		Dependent field.
+ * @param jQueryObject	field				Field to show or hide.
+ * @param mixed 		dependencyValue		Value that must be checked to display or not the field evaluated.
+ * @param bool 			group				Indicates whether you are evaluating a dependency of a group or if a singular field.
  */
 function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group ){
 
 	jQuery(document).on( 'change', dependsOfField, function(){
 
 		if( group ){
-			field = jQuery(this).parents('.op-group').find( group ).parents('.op-field');
 			
+			field = jQuery(this).parents('.op-group').find( group ).parents('.op-field');
+		
 		}
 	
 		var fieldValues = '';
@@ -214,16 +206,16 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				if( ! fieldValues ){
 					fieldValues = '';
 				}
+				
 				break;
 				
 		}
-		
-		
-		//Si el campo del que depende es un array
+				
+		//If the dependent field is an array.
 
 		if ( jQuery.isArray( fieldValues ) ) {
 		
-			//Si las dependencias es un array
+			//If the value of the dependencies is an array
 			if ( jQuery.isArray( dependencyValue ) ) {
 				
 				var sw = 0;
@@ -238,61 +230,48 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				
 				if ( sw == 0){
 					field.hide('slow');
-					console.log("no-(array-array)");
 				}else{
 					field.show('slow');
-					console.log("si-(array-array)");
 				}
 				
 			}
 			
-			//Si las dependencias es un valor single
+			//If the value of the dependencies isn't an array (single value)
 			else{
 			
 				if( fieldValues.indexOf( dependencyValue ) >= 0 || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ) {
 					field.show('slow');
-					console.log("si-(array-normal)");
 				}else{
 					field.hide('slow');
-					console.log("no-(array-normal)");
-					
 				}
 			}
 		
 		}
-		//Si el campo del que depende es un valor single
+		//If the dependent field is a single value.
 		else{
 			
-			//Si los valores de las dependencias son arrays
+			//If the value of the dependencies is an array
 			if ( jQuery.isArray( dependencyValue ) ) {
 				
 				if( dependencyValue.indexOf( fieldValues ) >=0 || ( fieldValues.length == 0 && dependencyValue == '{{not-empty}}' ) ) {
 					field.show('slow');
-					console.log("si-(normal-array)");
 				}else{
 					field.hide('slow');
-					console.log("no-(normal-array)");
 				}
 				
 			}
-			//Si el valor de las dependencias no son arrays	
+			//If the value of the dependencies isn't an array (single value)
 			else{
 				
 				if( fieldValues == dependencyValue || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ){
 					field.show('slow');
-					console.log("si-(normal-normal)");
 				}else{
 					field.hide('slow');
-				
-					console.log("no-(normal-normal)");
 				}
 				
 			}
-			
-			
-		
+					
 		}
 
-		
 	});
 }

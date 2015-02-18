@@ -133,7 +133,6 @@ class Optimalpress_Shortcode_Generator {
      * Print Modal
 	 *
 	 * This function prints the structure containing all sections of shortcodes.
-     *
      */ 
 	public function print_modal() {
 	
@@ -228,16 +227,11 @@ class Optimalpress_Shortcode_Generator {
 	
     /**
      * Create a "Shortcode Generator" button for tinymce
-     *
      */
     public function set_shortcode_generator_button() {
 	
-        if( current_user_can('edit_posts') && current_user_can('edit_pages') ) {
-		
-            add_filter( 'mce_external_plugins', array( $this, 'add_buttons' ) );
-            add_filter( 'mce_buttons', array( $this, 'register_buttons' ) );
-		
-		}
+        add_filter( 'mce_external_plugins', array( $this, 'add_buttons' ) );
+        add_filter( 'mce_buttons', array( $this, 'register_buttons' ) );
 		
     }
 

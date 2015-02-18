@@ -1,6 +1,9 @@
+/**
+ * Metaboxes javascript
+ */
 jQuery( window ).load(function() {
 	
-	//LLama a la función que se encarga de las dependencias
+	//Call function that handles dependencies.
 	opInitDependency( op_metabox );	
 		
 });

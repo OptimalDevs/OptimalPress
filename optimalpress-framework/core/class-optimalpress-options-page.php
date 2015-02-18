@@ -80,8 +80,7 @@ class Optimalpress_Options_Page {
 	 * @var Array
 	 */	
 	private $controls_used;
-	
-	
+		
     /**
      * Start up
 	 *
@@ -113,7 +112,7 @@ class Optimalpress_Options_Page {
 		foreach( $menus as $menu ) {
 			
 			$controls_inst = $this->iterate_menu( $menu['controls'] );				
-						
+			
 			$this->menus_inst[] = array( 'name' => $menu['name'], 'icon' => $menu['icon'], 'title' => $menu['title'], 'controls' => $controls_inst );
 			
 		}
@@ -126,7 +125,6 @@ class Optimalpress_Options_Page {
     }
 	
 	/**
-	 *
 	 * Iterates the array of each menu item and instance all controls used.
 	 * Stores in an array of objects all controls used to later render them on screen.
 	 * 
@@ -266,6 +264,7 @@ class Optimalpress_Options_Page {
 			<?php
 		
 		}
+		
 		if( in_array( 'link', $this->controls_used ) ) {
 			
 			$search_panel_visible = '1' == get_user_setting( 'wplink', '0' ) ? ' class="search-panel-visible"' : '';
@@ -453,7 +452,7 @@ class Optimalpress_Options_Page {
 		
 		update_option( $this->option_key, $validated_fields );
 		
-		$result['message']	= $this->controls_inst;
+		$result['message']	= $validated_fields;
 		
 		header( 'content-type: application/json; charset=utf-8' );
 		
