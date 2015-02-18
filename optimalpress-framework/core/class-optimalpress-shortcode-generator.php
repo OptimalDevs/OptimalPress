@@ -93,12 +93,19 @@ class Optimalpress_Shortcode_Generator {
 					$control_ins		= new $field_classname( $control['type'], $control['name'], $control );
 					$control_inst[]		= $control_ins;
 				
-					if( ! empty( $control_ins->dependency ) ) {
-						$this->deps[] = array( 'type' => $control_ins->type, 'field' => $control_ins->name, 'depends_of' => $control_ins->dependency['field'], 'values' => $control_ins->dependency['values'], 'group' => false, 'shortcode_group' => $key );
-					}
-					
+					$deps			= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $control, $control_ins );
 					$controls_used	= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $control, $control_ins );
 			
+					if( $deps ) {
+						
+						foreach( $deps as &$dep ) {
+							$dep['shortcode_group'] = $key;
+						}
+				
+						$this->deps				=  array_merge( $this->deps, $deps );
+						
+					}
+								
 					if( $controls_used ) {
 					
 						$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
@@ -133,6 +140,7 @@ class Optimalpress_Shortcode_Generator {
      * Print Modal
 	 *
 	 * This function prints the structure containing all sections of shortcodes.
+     *
      */ 
 	public function print_modal() {
 	
@@ -227,11 +235,16 @@ class Optimalpress_Shortcode_Generator {
 	
     /**
      * Create a "Shortcode Generator" button for tinymce
+     *
      */
     public function set_shortcode_generator_button() {
 	
-        add_filter( 'mce_external_plugins', array( $this, 'add_buttons' ) );
-        add_filter( 'mce_buttons', array( $this, 'register_buttons' ) );
+        if( current_user_can('edit_posts') && current_user_can('edit_pages') ) {
+		
+            add_filter( 'mce_external_plugins', array( $this, 'add_buttons' ) );
+            add_filter( 'mce_buttons', array( $this, 'register_buttons' ) );
+		
+		}
 		
     }
 

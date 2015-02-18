@@ -7,6 +7,7 @@ if ( ! class_exists( 'Optimalpress_Init' ) ) {
 	 *
 	 * In this class we require all framework core classes and functions.
 	 * All constants needed are defined here.
+	 *
 	 */
 	class Optimalpress_Init {
 
@@ -26,6 +27,7 @@ if ( ! class_exists( 'Optimalpress_Init' ) ) {
 		
 			/*
 			 * Require all core classes
+			 *
 			 */
 			require_once( 'core/class-optimalpress-control.php');
 			require_once( 'core/class-optimalpress-metabox.php');
@@ -36,6 +38,7 @@ if ( ! class_exists( 'Optimalpress_Init' ) ) {
 						
 			/* 
 			 * Defining all constants
+			 *
 			 */
 			$content_url	= untrailingslashit( dirname( dirname( get_stylesheet_directory_uri() ) ) );
 			$content_dir	= untrailingslashit( dirname( dirname( get_stylesheet_directory() ) ) );
@@ -55,9 +58,9 @@ if ( ! class_exists( 'Optimalpress_Init' ) ) {
 		 * Define the "Custom Controls" folder.
 		 *
 		 * @param string	$path	Path to the custom controls folder.
-		 * @param string	$url 	URL to the custom controls folder (Optional).
+		 * @param string	$url 	URL to the custom controls folder.
 		 */
-		public function set_custom_controls_constants( $path, $url = '' ) {
+		public function set_custom_controls_constants( $path, $url ) {
 			
 			define( 'OP_CUSTOM_CONTROLS_PATH', $path );
 			define( 'OP_CUSTOM_CONTROLS_URL', $url );

@@ -29,26 +29,34 @@ class OP_Control_Section extends Optimalpress_Control {
 			$group_control['group_name']	= false;
 			$control_obj					= new $field_classname( $group_control['type'], $group_control['name'], $group_control );
 			$g_controls[]					= $control_obj;
-
 			
-
-			if( ! in_array( $control_obj->type, $this->controls_used ) ) {
-				$this->controls_used[] = $control_obj->type;
+			$deps					= apply_filters( 'op_apply_control_deps', $control_obj->get_deps(), $group_control, $control_obj );
+			$controls_used			= apply_filters( 'op_apply_controls_used', $control_obj->get_controls_used(), $group_control, $control_obj );
+			
+			if( $deps ) {
+			
+				$this->deps				=  array_merge( $this->deps, $deps );
+				
 			}
-
-			if( ! empty( $control_obj->dependency ) ) {
-				$this->deps[] = array( 'type' => $control_obj->type, 'field' => $control_obj->name, 'depends_of' => $control_obj->dependency['field'], 'values' => $control_obj->dependency['values'], 'group' =>  false );
+			
+			if( $controls_used ) {
+			
+				$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
+				
 			}
-
+			
 		}
 		
 		$this->controls	= $g_controls;
+		
 	}
 	
 	public function enqueue_scripts_styles() {
 		
 		foreach( $this->controls as $control ) {
+			
 			$control->enqueue_scripts_styles();
+			
 		}
 		
 		return;
@@ -78,12 +86,13 @@ class OP_Control_Section extends Optimalpress_Control {
 		$return	= false;
 		
 		if( ! empty( $this->deps ) ) {
+			
 			return $this->deps;
+		
 		}
 		
 		return $return;
-		
-		
+				
 	}
 	
 	public function get_controls_used(){
@@ -96,7 +105,6 @@ class OP_Control_Section extends Optimalpress_Control {
 			
 		return $this->controls;
 	}
-
 
 }
 

@@ -41,22 +41,23 @@ class OP_Control_Group extends Optimalpress_Control {
 			$group_control['group_name']	= $name;
 			$control_ins					= new $field_classname( $group_control['type'], $group_control['name'], $group_control );
 			$g_controls[]					= $control_ins;
-			
-			if( ! empty( $control_ins->dependency ) ) {
+						
+			$deps			= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $group_control, $control_ins );
+			$controls_used	= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $group_control, $control_ins );
+	
+			if( $deps ) {
 				
-				$this->deps[] = array( 
-					'type' 			=> $control_ins->type, 
-					'field' 		=> $control_ins->name, 
-					'depends_of' 	=> $control_ins->dependency['field'], 
-					'values' 		=> $control_ins->dependency['values'], 
-					'group' 		=> $name 
-				);
-			
+				foreach( $deps as &$dep ) {
+					$dep['group'] = $name;
+				}
+				
+				$this->deps				=  array_merge( $this->deps, $deps );
+				
 			}
+						
+			if( $controls_used ) {
 			
-			if( ! in_array( $control_ins->type, $this->controls_used ) ) {
-				
-				$this->controls_used[] = $control_ins->type;
+				$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
 				
 			}
 			

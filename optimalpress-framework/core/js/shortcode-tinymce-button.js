@@ -1,8 +1,10 @@
 /*
  * Adds the Shortcode Generator button to tinyMce
  *
- * This script adds the button shortcode generator to the WordPress text editor.
+ * Este script se encarga de añadir el botón de shortcode generator a language
+ * lista de botones del editor de texto de WordPress.
  */
+
 (function($){
 	function create(sg)	{
 		tinymce.create( 'tinymce.plugins.' + sg.name, {

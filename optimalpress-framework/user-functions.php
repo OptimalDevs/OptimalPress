@@ -6,21 +6,22 @@
  * There are functions to retrieve values from the database and functions that help fill a control in the correct format.
  */
  
+/**
+ * Get metabox value from database.
+ *
+ * @param int 		$post_id		The ID of the post from which you want the data.
+ * @param string	$key 			A string containing the name of the meta value you want.
+ * @param string	$name 			The option name.
+ * @param mixed		$default		The default value to return if no value is returned.
+ * @param bool		$allow_empty	Decide whether the result to return may be empty.
+ *									If "false" and the value to return is empty, the result to return will be the value assigned to $default variable.
+ *									If "true" it'll return the result of the database even if it's empty.
+ *
+ * @return mixed Returns the value retrieved from database.
+ */
+
 if( ! function_exists( 'op_get_metabox_field' ) ) {
-	
-	/**
-	 * Get metabox value from database.
-	 *
-	 * @param int 		$post_id		The ID of the post from which you want the data.
-	 * @param string	$key 			A string containing the name of the meta value you want.
-	 * @param string	$name 			The option name.
-	 * @param mixed		$default		The default value to return if no value is returned.
-	 * @param bool		$allow_empty	Decide whether the result to return may be empty.
-	 *									If "false" and the value to return is empty, the result to return will be the value assigned to $default variable.
-	 *									If "true" it'll return the result of the database even if it's empty.
-	 *
-	 * @return mixed Returns the value retrieved from database.
-	 */
+
 	function op_get_metabox_field( $post_id, $key, $name, $default = null, $allow_empty = true ) {
 				
 		$value	= get_post_meta( $post_id, $key, true );
@@ -42,18 +43,19 @@ if( ! function_exists( 'op_get_metabox_field' ) ) {
 	}
 	
 }
+
+/**
+ * Get values for a named option from the options database table.
+ *
+ * @param string	$key 			Name of the option set.
+ * @param string	$name 			Name of the option to retrieve.
+ * @param mixed		$default		The default value to return if no value is returned.
+ *
+ * @return mixed Returns the value retrieved from database.
+ */
  
 if( ! function_exists( 'op_get_option_field' ) ) {
-	
-	/**
-	 * Get values for a named option from the options database table.
-	 *
-	 * @param string	$key 			Name of the option set.
-	 * @param string	$name 			Name of the option to retrieve.
-	 * @param mixed		$default		The default value to return if no value is returned.
-	 *
-	 * @return mixed Returns the value retrieved from database.
-	 */
+
 	function op_get_option_field( $key, $name, $default = null ) {
 	
 		$op_options = get_option( $key );
@@ -67,16 +69,15 @@ if( ! function_exists( 'op_get_option_field' ) ) {
 		return $op_options[ $name ];
 		
 	}
-	
 }
 
 /**
  * Functions for Backend
+ *
  */
 if( is_admin() ) {
 		  
 	if( ! function_exists( 'op_get_tags' ) ) {
-		
 		/**
 		 * Get all the post tags ready to be used in the Optimalframework control format.
 		 *
@@ -98,7 +99,6 @@ if( is_admin() ) {
 	}
 
 	if( ! function_exists( 'op_get_categories' ) ) {
-		
 		/**
 		 * Get all the post categories ready to be used in the Optimalframework control format.
 		 *
@@ -120,7 +120,6 @@ if( is_admin() ) {
 	}
 
 	if( ! function_exists( 'op_get_posts' ) ) {
-		
 		/**
 		 * Get all the posts ready to be used in the Optimalframework control format.
 		 *
@@ -134,6 +133,7 @@ if( is_admin() ) {
 				'numberposts' => -1,
 				'fields'  => 'ids'
 			) );
+
 
 			$result = array();
 			
@@ -156,6 +156,7 @@ if( is_admin() ) {
 		 *
 		 * @return array Retrieve an array as 'value' and 'label' ready for use it in the Framework controls.
 		 */
+		 
 		function op_get_pages() {
 
 			$pages_ids = get_posts( array(
@@ -164,6 +165,7 @@ if( is_admin() ) {
 				'numberposts' => -1,
 				'fields'  => 'ids'
 			) );
+
 
 			$result = array();
 			

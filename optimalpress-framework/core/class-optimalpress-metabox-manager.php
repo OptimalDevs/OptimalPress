@@ -115,6 +115,7 @@ class Optimalpress_Metabox_Manager {
 	
 	/**
 	 * Enqueue the common scripts and styles for metaboxes.
+	 * 
 	 */
 	public function enqueue_scripts_styles() {
 		
@@ -139,6 +140,7 @@ class Optimalpress_Metabox_Manager {
 	 * Enqueue some code needed for some controls.
 	 *
 	 * This enqueue some code in the footer only if the control is in use.
+	 *
 	 */
 	public function enqueue_footer() {
 		
@@ -179,7 +181,6 @@ class Optimalpress_Metabox_Manager {
 					<?php
 				
 				}
-				
 				if( in_array( 'link', $control_used ) && ! $link_included ) {
 					
 					$link_included = true;
@@ -253,5 +254,3 @@ class Optimalpress_Metabox_Manager {
 	}
 		
 }
-
-?>

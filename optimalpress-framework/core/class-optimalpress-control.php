@@ -3,6 +3,7 @@
 /**
  * The control class, the parent of all controls.
  */
+ 
 class Optimalpress_Control {
 	
 	/**
@@ -21,13 +22,13 @@ class Optimalpress_Control {
 	 * Label for the field
 	 * @var String
 	 */
-	public $label;
+	protected $label;
 	
 	/**
 	 * Description for the field
 	 * @var String
 	 */
-	public $description;
+	protected $description;
 	
 	/**
 	 * Default value for the field
@@ -39,25 +40,25 @@ class Optimalpress_Control {
 	 * Dependencies for the field
 	 * @var String|Array
 	 */
-	public $dependency;
+	private $dependency;
 	
 	/**
 	 * Class name for the control container
 	 * @var String
 	 */
-	public $container_class;
+	protected $container_classes;
 	
 	/**
 	 * Class name for the field it self
 	 * @var String
 	 */
-	public $field_class;
+	protected $field_classes;
 	
 	/**
 	 * Indicating whether the control is custom
 	 * @var bool
 	 */
-	public $is_custom;
+	protected $is_custom;
 	
 	/**
 	 * Setup the control object
@@ -70,21 +71,23 @@ class Optimalpress_Control {
 					
 		$this->type					= $type;
 		$this->name 				= $name;
+		$this->is_custom			= ( isset( $control_args['is_custom'] ) ) ? $control_args['is_custom'] : false;
 		$this->label 				= ( isset( $control_args['label'] ) ) ? $control_args['label'] : '';
 		$this->description 			= ( isset( $control_args['description'] ) ) ? $control_args['description'] : '';
 		$this->default_value		= ( isset( $control_args['default'] ) ) ? $control_args['default'] : '';
-		$this->is_custom			= ( isset( $control_args['is_custom'] ) ) ? $control_args['is_custom'] : false;
-		$this->container_classes	= ( isset( $control_args['container_class'] ) ) ? sanitize_html_class( $control_args['container_class'] ) : '';	
-		$field_class				= ( isset( $control_args['group_name'] ) && ! empty( $control_args['group_name'] ) ) ? sanitize_html_class( $control_args['group_name'] ) . '-' . $this->name : 'op-single ' . $this->name;
-		$field_extra_classes		= ( isset( $control_args['field_class'] ) ) ? sanitize_html_class( $control_args['field_class'] ) : '';
-		$this->field_classes		= $field_class . ' ' . $field_extra_classes;
+		$this->container_classes	= ( isset( $control_args['container_classes'] ) ) ? sanitize_html_class( $control_args['container_classes'] ) : '';	
+		$field_classes				= ( isset( $control_args['group_name'] ) && ! empty( $control_args['group_name'] ) ) ? sanitize_html_class( $control_args['group_name'] ) . '-' . $this->name : 'op-single ' . $this->name;
+		$field_extra_classes		= ( isset( $control_args['field_classes'] ) ) ? sanitize_html_class( $control_args['field_classes'] ) : '';
+		$this->field_classes		= $field_classes . ' ' . $field_extra_classes;
 		$this->dependency			= '';
-				
+		
 		if( isset( $control_args['dependency'] ) && is_array( $control_args['dependency'] ) ) {
 			
 			$this->dependency = array(
+			
 				'field' 	=> ( isset( $control_args['dependency']['field'] ) ) ? $control_args['dependency']['field'] : '',
-				'values'	=> ( isset( $control_args['dependency']['values'] ) ) ? $control_args['dependency']['values'] : '',	
+				'values'	=> ( isset( $control_args['dependency']['values'] ) ) ? $control_args['dependency']['values'] : '',
+			
 			);
 			
 		}
@@ -162,9 +165,6 @@ class Optimalpress_Control {
 		
 	}
 	
-	/**
-	 * Get deps of this control
-	 */
 	public function get_deps() {
 		
 		$return	= false;
@@ -173,11 +173,9 @@ class Optimalpress_Control {
 		
 			$return	= array(
 				array( 
-					'type' 			=> $this->type,
 					'field' 		=> $this->name,
 					'depends_of' 	=> $this->dependency['field'],
 					'values' 		=> $this->dependency['values'],
-					'group' 		=> false,
 				)
 			);
 			
@@ -187,18 +185,12 @@ class Optimalpress_Control {
 		
 	}
 	
-	/**
-	 * Get controls used in this control
-	 */
 	public function get_controls_used() {
 
 		return array( $this->type );
 		
 	}
 	
-	/**
-	 * Get this control object
-	 */
 	public function get_controls_inst() {
 
 		return array( $this );

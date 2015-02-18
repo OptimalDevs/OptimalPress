@@ -75,6 +75,7 @@ class Optimalpress_Shortcode_Generator_Manager {
 			'button_title'	=> $button_title,
 			'main_image'	=> empty( $main_image ) ? OP_URL . '/core/img/op_shortcode_icon.png' : $main_image,
 			'post_types'	=> $post_types,
+
 		);
 				
 	}
@@ -136,7 +137,7 @@ class Optimalpress_Shortcode_Generator_Manager {
 			wp_enqueue_style( 'optimalpress-controls', OP_URL . '/core/css/controls.css', array(), '1.0' );
 			wp_enqueue_script( 'optimalpress-dependency-js', OP_URL . '/core/js/dependency.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'optimalpress-shortcode-js', OP_URL . '/core/js/shortcode.js', array( 'jquery', 'optimalpress-dependency-js' ), '1.0', true );
-			
+						
 			wp_localize_script( 'optimalpress-shortcode-js', 'op_sg', $this->localize );
 		
 		}
@@ -187,7 +188,6 @@ class Optimalpress_Shortcode_Generator_Manager {
 					<?php
 				
 				}
-				
 				if( in_array( 'link', $control_used ) && ! $link_included ) {
 					
 					$link_included = true;
@@ -261,5 +261,3 @@ class Optimalpress_Shortcode_Generator_Manager {
 	}
 		
 }
-
-?>

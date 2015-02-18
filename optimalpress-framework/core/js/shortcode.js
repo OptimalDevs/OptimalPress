@@ -1,25 +1,30 @@
 /**
  * Shortcodes Generator Javascript
  *
- * This script is responsible for the back-end side of Shortcode Generator:
- * Manage the Shortcode Generator modalbox.
- * Switch between tabs.
- * Open and close headers.
- * Insert Shortcode in WordPress editor.
+ * Este script se encarga de la parte del backend del shortcode generator:
+ * Controlar el modlabox del SHortcode generator.
+ * Cambiar entre tabs.
+ * Abrir y cerrar cabeceras.
+ * Insertar Shortcode en el editor de Wordpress
+ *
  */
+
 jQuery( document ).ready( function($) {
 
 	opInitDependency( op_sg );	
 	
-	//Set Overlay background for modal
+	//	Set Overlay background for modal
+	
 	$( '<div class="op-modal-overlay" />' ).insertAfter( '#wpfooter' );	
 	
-	//Close all headings	
+	//	Close all headings	
+	
 	$('.op-modal .op-element' ).addClass('closed');
 	
 	/*
-	 * Menu change tabs
-	 */	
+	*	Menu change tabs
+	*
+	*/	
 	$( '.op-modal .op-menu a' ).on( 'click', function( e ) {
 	
 		$(this).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-list' ).removeClass( 'op-current' );
@@ -28,8 +33,9 @@ jQuery( document ).ready( function($) {
 	});
 	
 	/*
-	 * Menu change heading: open and close
-	 */	
+	*	Menu change heading: open and close
+	*
+	*/	
 	$( '.op-modal .op-element-heading' ).on( 'click', function(e) {
 		
 		var beforeClosed = $(this).parents( '.op-element' ).hasClass( 'closed' );
@@ -46,8 +52,9 @@ jQuery( document ).ready( function($) {
 	});
 	
 	/*
-	 * Insert Shortcodes in Editor
-	 */	
+	*	Insert Shortcodes in Editor
+	*
+	*/	
 	$( '.op-modal .op-insert' ).bind( 'click.op_sc_insert', function(e){
 	
 		e.preventDefault();
@@ -114,12 +121,12 @@ jQuery( document ).ready( function($) {
 			
 		}
 
-		//print shortcode to editor					
+		// print shortcode to editor					
 		code = code.replace( ']', atts + ']' );
 		code = decodeEntities( code );
 		$modal.trigger( 'op_insert_shortcode', code );
 
-		//reset form and close dialog
+		// reset form and close dialog
 		$( '.op-element' ).removeClass( 'active' );
 		$modal.css( { visibility: 'hidden' } );
 		$( '.op-modal-overlay' ).hide();
@@ -179,8 +186,8 @@ jQuery( document ).ready( function($) {
 	})();
 	
 	/*
-	 * Close Modal by clicking outside
-	 */
+	*	Close Modal by clicking outside
+	*/
 	$( '.op-modal-overlay' ).click(function(){
 		
 		var $modal  = $( '.op-modal' );
@@ -192,8 +199,8 @@ jQuery( document ).ready( function($) {
 	});
 	
 	/*
-	 * Close Modal by clicking "x" Button or cancel button
-	 */
+	*	Close Modal by clicking "x" Button or cancel button
+	*/
 	$( '.op-close-modal, .op-cancel' ).click(function( e){
 		
 		e.preventDefault();
