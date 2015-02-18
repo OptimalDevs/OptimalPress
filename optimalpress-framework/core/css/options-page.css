@@ -155,7 +155,6 @@
 	position: relative;
 }
 
-
 .op-option-form  *, .op-option-form  *:before, .op-option-form  *:after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -163,13 +162,12 @@
 	box-sizing: border-box;
 }
 
-.op-wrap .op-option-panel *, .op-wrap .op-option-panel *:before, .op-wrap .op-option-panel *:after {
+.op-wrap .op-left-panel *, .op-wrap .op-left-panel *:before, .op-wrap .op-left-panel *:after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 
 .op-option-form  .op-field .field .input {
 	position: relative;
