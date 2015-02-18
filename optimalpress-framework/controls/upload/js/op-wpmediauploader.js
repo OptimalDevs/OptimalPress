@@ -65,10 +65,10 @@ jQuery( window ).load(function() {
 
 	});
 
-	jQuery( this ).on( 'click', '.op-remove-media', function(e){
+	jQuery( document ).on( 'click', '.op-remove-media', function(e){
 
 		e.preventDefault();
-		
+
 		if( jQuery(this).parents( '.input' ).find( '.op-upload-media' ).data( 'multiple' ) ) {
 		
 			var text = jQuery(this).parents( '.input' ).find( '.op-input' ).val().replace( jQuery(this).prev().data( 'id' ), '' );
@@ -84,9 +84,7 @@ jQuery( window ).load(function() {
 		jQuery(this).parents( '.input' ).find( '.op-input' ).trigger('change');
 		
 		jQuery(this).parent().remove();
-		
-		
-
+				
 	});
 
 });
