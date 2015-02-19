@@ -139,7 +139,6 @@
 	display: inline-block;
 }
 
-
 /*
 *	Checkimage && Radioimage
 *
@@ -259,7 +258,6 @@
 	color: #9c1825;
 }
 
-
 /*
 *	Groups
 *
@@ -270,17 +268,12 @@
 	padding: 10px;
 }
 
-.op-group-wrapper .chosen-drop {
-	position: relative;
-	overflow: auto;
-}
-
 .op-group-wrapper .op-group {
 	background: #fff;
 	border: 1px solid #e5e5e5;
 	border-radius: 3px;
 	margin: 6px 0px;
-	position: relative;	
+	position: relative;
 }
 
 .op-group-wrapper .op-group .op-group-heading {
@@ -291,7 +284,6 @@
 	line-height: 30px;
 	padding: 0 10px;
 	text-transform: uppercase;
-	margin-bottom: -1px;
 	padding-right: 80px;
 	height: 35px;
 }
@@ -302,10 +294,13 @@
 	right: 0;
 	margin: 0 10px;
 	color: #c0392b;
+	height: 100%;
 }
 
 .op-group-wrapper .op-group .op-group-heading .op-group-title {
 	display: block;
+	height: 100%;
+	overflow: hidden;
 }
 
 .op-group-wrapper .op-group .op-group-heading a {
