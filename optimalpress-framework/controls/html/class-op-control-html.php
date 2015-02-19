@@ -18,9 +18,9 @@ class OP_Control_HTML extends Optimalpress_Control {
 			
 	}
 
-	public function render( $value, $name = '' ) {
+	public function render( $value, $name = false ) {
 		
-		$name	= empty ( $name ) ? $this->name : $name; 
+		$name	= ( ! $name ) ? $this->name : $name;
 		
 		?>
 		<div class="op-field not-sc op-control-html-wrapper <?php echo $this->container_classes; ?>" id="field-<?php echo esc_attr( $name ); ?>" >

@@ -29,9 +29,9 @@ class OP_Control_NoteBox extends Optimalpress_Control {
 			
 	}
 
-	public function render( $value, $name = '' ) {
+	public function render( $value, $name = false ) {
 		
-		$name 	= empty ( $name ) ? $this->name : $name; 
+		$name	= ( ! $name ) ? $this->name : $name;
 		
 		?>
 		<div class="<?php echo esc_attr($this->is_hidden);?> not-sc op-control-notebox-wrapper note-<?php echo esc_attr( $this->status ); ?> <?php echo $this->container_classes; ?>" id="field-<?php echo esc_attr( $name ); ?>" >
