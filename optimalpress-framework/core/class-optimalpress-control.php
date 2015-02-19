@@ -125,9 +125,9 @@ class Optimalpress_Control {
 	 * @param mixed 	$value	The value of the field.
 	 * @param string	$name 	The name of the field. (Optional) If empty, the name will be the name of the control.
 	 */
-	public function render( $value, $name = '' ) {
+	public function render( $value, $name = false ) {
 		
-		$name 	= empty ( $name ) ? $this->name : $name; 
+		$name 	= ( ! $name ) ? $this->name : $name; 
 		
 		?>
 		
