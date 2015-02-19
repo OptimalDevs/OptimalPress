@@ -219,7 +219,7 @@ class Optimalpress_Shortcode_Generator {
 		foreach( $controls as $control ) {
 
 			$default_value 	= isset( $control->default_value ) ? $control->default_value : '' ;
-			$control->render( $default_value, $control->name );
+			$control->render( $default_value );
 
 		}
 		

@@ -34,7 +34,7 @@ class OP_Control_DatePicker extends Optimalpress_Control {
 	
 	}
 
-	public function render_field( $value, $name ) {
+	protected function render_field( $value, $name ) {
 	
 		?>
 		<div class="field op-control-datepicker">

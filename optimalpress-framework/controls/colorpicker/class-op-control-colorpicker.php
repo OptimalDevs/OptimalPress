@@ -32,7 +32,7 @@ class OP_Control_ColorPicker extends Optimalpress_Control {
 			
 	}
 
-	public function render_field( $value, $name ) {
+	protected function render_field( $value, $name ) {
 	
 		?>
 		<div class="input op-control-colorpicker">

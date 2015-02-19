@@ -199,7 +199,7 @@ class Optimalpress_Metabox {
 			
 			$value	= isset( $metabox[ $control->name ] ) ? $metabox[ $control->name ] : $control->default_value;
 			
-			$control->render( $value, $control->name );
+			$control->render( $value );
 			
 		}
 		

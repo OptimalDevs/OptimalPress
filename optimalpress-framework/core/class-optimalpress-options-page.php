@@ -398,7 +398,7 @@ class Optimalpress_Options_Page {
 													
 													$value 	= isset( $this->old_options[ $cont->name ] ) ? $this->old_options[ $cont->name ] : $cont->default_value;
 													
-													$cont->render( $value, $cont->name );
+													$cont->render( $value );
 													
 												}
 												?></div></div><?php
@@ -406,7 +406,7 @@ class Optimalpress_Options_Page {
 												
 												$value 	= isset( $this->old_options[ $control->name ] ) ? $this->old_options[ $control->name ] : $control->default_value;
 
-												$control->render( $value, $control->name );
+												$control->render( $value );
 												
 											}
 										}

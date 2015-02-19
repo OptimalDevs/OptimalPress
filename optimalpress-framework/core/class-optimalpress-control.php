@@ -123,9 +123,11 @@ class Optimalpress_Control {
 	 * Render the control in frontend
 	 * 
 	 * @param mixed 	$value	The value of the field.
-	 * @param string	$name 	The name of the field.
+	 * @param string	$name 	The name of the field. (Optional) If empty, the name will be the name of the control.
 	 */
-	public function render( $value, $name ) {
+	public function render( $value, $name = false ) {
+		
+		$name 	= ( ! $name ) ? $this->name : $name; 
 		
 		?>
 		
@@ -154,12 +156,12 @@ class Optimalpress_Control {
 	}
 	
 	/**
-	 * Render the control in frontend (without the structure of the "standard" render)
+	 * Render the field.
 	 *
 	 * @param mixed 	$value	The value of the field.
 	 * @param string	$name 	The name of the field.
 	 */
-	public function render_field( $value, $name ) {
+	protected function render_field( $value, $name ) {
 		
 		return;
 		

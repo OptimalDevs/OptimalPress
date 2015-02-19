@@ -20,7 +20,7 @@ class OP_Control_Radiobutton extends Optimalpress_Control {
 			
 	}
 
-	public function render_field( $value, $name ) {
+	protected function render_field( $value, $name ) {
 	
 		?>
 		<div class="input op-control-radiobutton">
