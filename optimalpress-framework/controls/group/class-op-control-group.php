@@ -116,8 +116,9 @@ class OP_Control_Group extends Optimalpress_Control {
 			
 	}
 
-	public function render( $group_fields, $name ) {
-	
+	public function render( $group_fields, $name = '' ) {
+		
+		$name 			= empty ( $name ) ? $this->name : $name; 
 		$last_key 		= isset( $group_fields['lastkey'] ) && ! empty( $group_fields['lastkey'] ) ? intval( $group_fields['lastkey'] ) : 1;
 		$sortable_class	=  $this->sortable ? ' op-sortable' : '';
 

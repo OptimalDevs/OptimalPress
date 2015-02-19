@@ -15,8 +15,10 @@ class OP_Control_Header extends Optimalpress_Control {
 			
 	}
 
-	public function render( $value, $name ) {
-	
+	public function render( $value, $name = '' ) {
+		
+		$name	= empty ( $name ) ? $this->name : $name; 
+		
 		?>
 		<div class="op-field not-sc op-control-header-wrapper <?php echo $this->container_classes; ?>" id="field-<?php echo esc_attr( $name ); ?>" >
 

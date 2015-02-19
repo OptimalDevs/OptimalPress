@@ -25,7 +25,7 @@ class OP_Control_Upload extends Optimalpress_Control {
 		return $field_value;	
 	}
 
-	public function render_field( $value, $name ) {
+	protected function render_field( $value, $name ) {
 	
 		$att_ids	= explode( ',', $value );
 

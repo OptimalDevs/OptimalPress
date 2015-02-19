@@ -69,7 +69,7 @@ class OP_Control_Section extends Optimalpress_Control {
 			
 	}
 
-	public function render( $group_fields, $name ) {
+	public function render( $group_fields, $name = '' ) {
 		
 		return;
 		
