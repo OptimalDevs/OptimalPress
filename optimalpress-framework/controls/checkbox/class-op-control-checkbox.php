@@ -20,7 +20,7 @@ class OP_Control_Checkbox extends Optimalpress_Control {
 			
 	}
 
-	protected function render_field( $value, $name ) {
+	protected function render_field( $values, $name ) {
 		
 		?>
 		<div class="input op-control-checkbox">
