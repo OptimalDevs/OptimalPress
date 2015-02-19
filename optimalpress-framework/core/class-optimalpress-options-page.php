@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class for create an Option page
+ * Class for create an Option page.
  *
  * This class is responsible for creating the theme options page.
  * Create the structure that will contain all controls.
@@ -80,14 +80,13 @@ class Optimalpress_Options_Page {
 	 * @var Array
 	 */	
 	private $controls_used;
-	
-	
+		
     /**
      * Start up
 	 *
 	 * @param string	$option_key		The unique id for the options.
 	 * @param string	$page_title 	The text to be displayed in the title tags of the page when the menu is selected.
-	 * @param string	$menu_title 	The text to be used for the wordpress menu.
+	 * @param string	$menu_title 	The text to be used for the WordPress menu.
 	 * @param string	$capability		The capability required for this menu to be displayed to the user.
 	 * @param string	$page_slug		The slug name to refer to this menu by (should be unique for this menu).
 	 * @param string	$header_title 	Title for the option page, visible to user.
@@ -113,7 +112,7 @@ class Optimalpress_Options_Page {
 		foreach( $menus as $menu ) {
 			
 			$controls_inst = $this->iterate_menu( $menu['controls'] );				
-						
+
 			$this->menus_inst[] = array( 'name' => $menu['name'], 'icon' => $menu['icon'], 'title' => $menu['title'], 'controls' => $controls_inst );
 			
 		}
@@ -197,7 +196,7 @@ class Optimalpress_Options_Page {
 		wp_register_style( 'optimalpress-option-page', OP_URL . '/core/css/options-page.css', array(), '1.0', 'all' );
 		wp_enqueue_style( 'optimalpress-controls', OP_URL . '/core/css/controls.css', array(), '1.0' );
 		wp_enqueue_style( 'optimalpress-option-page' );
-									
+
 		$dependencies = '';
 		
 		if( ! empty( $this->deps ) ){
@@ -226,14 +225,14 @@ class Optimalpress_Options_Page {
 	}
 	
 	/**
-	 * Enqueue some code needed for some controls
+	 * Enqueue some code needed for some controls.
 	 *
 	 * This enqueue some code in the footer only if the control is in use. 
 	 */	
 	public function enqueue_footer() {
 		
 		$current_screen = get_current_screen();
-				
+
 		if( $current_screen->id != 'appearance_page_' . $this->page_slug ) {
 			return;
 		}
@@ -264,8 +263,9 @@ class Optimalpress_Options_Page {
 			</div>
 
 			<?php
-		
+
 		}
+		
 		if( in_array( 'link', $this->controls_used ) ) {
 			
 			$search_panel_visible = '1' == get_user_setting( 'wplink', '0' ) ? ' class="search-panel-visible"' : '';
@@ -334,7 +334,7 @@ class Optimalpress_Options_Page {
 	}
 
     /**
-     * Options page callback for create the panel
+     * Options page callback for create the panel.
      */
     public function create_admin_page() {
 	
@@ -430,7 +430,7 @@ class Optimalpress_Options_Page {
     }
 	
 	/**
-     * Save Options by Ajax
+     * Save Options by Ajax.
      */
 	public function save_options() {
 

@@ -1,11 +1,11 @@
 <?php
+
 /**
  * The class that manage all metaboxes.
  *
  * This class stores all Metaboxes created in an array.
  * Also embeds the generic css and js for Metaboxes.
  */
- 
 class Optimalpress_Metabox_Manager {
 	
 	/**
@@ -48,11 +48,11 @@ class Optimalpress_Metabox_Manager {
 		add_action( 'current_screen', array( $this, 'render_metaboxes' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_styles' ) );
 		add_action( 'in_admin_footer', array( $this, 'enqueue_footer' ) );
-				
+
 	}
 	
 	/**
-	 * Add metabox to the metaboxes array
+	 * Add metabox to the metaboxes array.
 	 *
 	 * @param string	$metabox_id			The unique id for the metabox.
 	 * @param string	$metabox_title 		Title for the metabox, visible to user.
@@ -70,11 +70,11 @@ class Optimalpress_Metabox_Manager {
 			'context'		=> $metabox_context,
 			'priority'		=> $metabox_priority,
 		);
-				
+
 	}
 	
 	/**
-	 * Render metaboxes in the page
+	 * Render metaboxes in the page.
 	 *
 	 * This method iterate all metaboxes and it call to Optimalpress Metabox Class that manage each metabox.
 	 * Also stores each control used and dependencies.
@@ -181,6 +181,7 @@ class Optimalpress_Metabox_Manager {
 					<?php
 				
 				}
+				
 				if( in_array( 'link', $control_used ) && ! $link_included ) {
 					
 					$link_included = true;
@@ -254,3 +255,5 @@ class Optimalpress_Metabox_Manager {
 	}
 		
 }
+
+?>

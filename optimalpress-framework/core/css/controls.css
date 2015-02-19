@@ -1,13 +1,12 @@
 /*
-*
-*	Style for all controls
-*
-*/
+ *	Style for all controls
+ *
+ */
 
 /*
-*	Textbox
-*	
-*/
+ * Textbox
+ * 
+ */
 
 .op-control-textbox input, .op-control-slider input {
 	padding: 6px 10px;
@@ -23,9 +22,9 @@
 }
 
 /*
-*	Toggle
-*
-*/
+ * Toggle
+ *
+ */
 
 .op-control-toggle *  {
 	-webkit-box-sizing: content-box !important;
@@ -34,11 +33,11 @@
 }
 
 /*
-*	Codeeditor
-*
-*/
+ * Codeeditor
+ *
+ */
 
-.op-control-codeeditor .op-js-codeeditor{
+.op-control-codeeditor .op-js-codeeditor {
 	min-height: 200px;
 	border-width: 1px;
 	border-style: solid;
@@ -47,9 +46,9 @@
 }
 
 /*
-*	Slider Numeric
-*
-*/
+ * Slider Numeric
+ *
+ */
 
 .op-control-slider .slideinput {
 	position: absolute;
@@ -59,31 +58,33 @@
 	margin-top: -5px;
 	text-align: center;
 }
+
 .op-control-slider {
 	padding: 10px 80px 10px 0;
 }
+
 .op-control-slider .ui-slider-range { background: #333; }
 .op-control-slider .ui-slider-handle { border-color: #1e8cbe; }
 
 /*
-*	Color Picker
-*
-*/
+ * Color Picker
+ *
+ */
 
 .op-control-colorpicker .wp-color-result {
 	box-sizing: content-box !important;
 }
 
 /*
-*	Upload
-*
-*/
+ * Upload
+ *
+ */
 
-.op-control-upload .images{
+.op-control-upload .images {
 	margin-top: 10px
 }
 
-.op-control-upload .images .image{
+.op-control-upload .images .image {
 	display: inline-block;
 	min-width: 200px;
 	min-height: 113px;
@@ -107,33 +108,32 @@
 }
 
 /*
-*	Select
-*
-*/
+ * Select
+ *
+ */
 
 .op-control-select .chosen-choices .search-field input, .chosen-container-multi .chosen-choices {
     min-height: 26px;
 	width: 100% !important;
-	
 }
 
 .op-control-select .chosen-container-single {
 	min-height: 30px;
 }
+
 .op-control-select .chosen-container-single .chosen-single {
 	height: 30px;
 }
 
 /*
-*	Fix for chosen jquery lib (conflict with parent display:none)
-**/
-
+ * Fix for chosen jquery lib (conflict with parent display:none)
+ */
 .op-control-select .chosen-container { width: 100% !important; }
 
 /*
-*	Checkbox && RadioButton
-*
-*/
+ * Checkbox && RadioButton
+ *
+ */
 
 .op-control-checkbox label, .op-control-radiobutton label, .op-control-checkimage label, .op-control-radioimage label  {
 	margin: 5px;
@@ -141,9 +141,9 @@
 }
 
 /*
-*	Checkimage && Radioimage
-*
-*/
+ * Checkimage && Radioimage
+ *
+ */
 
 .op-control-checkimage img, .op-control-radioimage img {
 	border-width: 1px;
@@ -159,9 +159,11 @@
 }
 
 /*
-*	Control Header
-*/
-.op-control-header-wrapper{
+ *	Control Header
+ *
+ */
+ 
+.op-control-header-wrapper {
 	border-bottom: 1px dashed #333;
 	padding-left: 15px;
 	padding-bottom: 15px;
@@ -169,20 +171,20 @@
 	margin-bottom: 15px;
 }
 
-.op-control-header-wrapper .title{
+.op-control-header-wrapper .title {
 	font-weight: bold;
 	font-size: 24px; 
 	vertical-align: middle;
 }
 
-.op-control-header-wrapper .description{
+.op-control-header-wrapper .description {
 	padding-top: 10px;
 }
 
 /*
-*	Notebox
-*
-*/
+ * Notebox
+ *
+ */
 
 .op-control-notebox-wrapper {
 	border-width: 1px;
@@ -259,9 +261,9 @@
 }
 
 /*
-*	Groups
-*
-*/
+ *	Groups
+ *
+ */
 
 .op-group-wrapper {
 	border-radius: 3px;
@@ -311,7 +313,7 @@
 	margin-right: 5px;
 }
 
-.op-loop .op-group-add{
+.op-loop .op-group-add {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	overflow: hidden;
@@ -333,7 +335,7 @@
 	height: auto;
 }
 
-.op-loop .op-group-add .list-item-description{
+.op-loop .op-group-add .list-item-description {
 	padding-top: 5px;
 }
 
@@ -356,22 +358,23 @@
 }
 
 /*
-*	Link
-**/
+ * Link
+ *
+ */
 .op-control-link {
 	display: table;
 }
 
-.op-control-link .op_title_link_container{
+.op-control-link .op_title_link_container {
 	display: table-cell;
 	vertical-align: middle;
 }
 
-.op-control-link .op_module_link_span{
+.op-control-link .op_module_link_span {
 	padding-right: 10px;
 	padding-left: 10px;
 }
 
-.op-control-link .op-remove-link-button{
+.op-control-link .op-remove-link-button {
 	font-size: 18px;
 }

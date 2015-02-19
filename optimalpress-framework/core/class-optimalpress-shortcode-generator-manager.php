@@ -1,6 +1,7 @@
 <?php
+
 /**
- * The class that manage all shortcodes generator
+ * The class that manage all shortcodes generator.
  *
  * This class stores all "Shortcode Generator" created in an array.
  * Also embeds the generic css and js.
@@ -8,13 +9,13 @@
 class Optimalpress_Shortcode_Generator_Manager {
 	
 	/**
-	 * List of all "shortcode generator"
+	 * List of all "shortcode generator".
 	 * @var Array
 	 */
 	private $shortcode_generator_list;
 	
 	/**
-	 * For check if can output in the current page
+	 * For check if can output in the current page.
 	 * @var Bool
 	 */
 	private $output;
@@ -41,11 +42,11 @@ class Optimalpress_Shortcode_Generator_Manager {
 	 * Startup
 	 *
 	 * @param array	$metaboxes	Array that containing all "Shortcode generator". 
-	 *							Optional parameter if the developer wants to send the array with all Metaboxes 
+	 *							Optional parameter if the developer wants to send the array with all Metaboxes .
 	 *							or otherwise use the method "add_metabox" to add one by one.
 	 */
 	public function __construct( $shortcode_generator_list = false ) {
-			
+	
 		$this->output						= false;
 		$this->fields_deps					= array();
 		$this->shortcode_generator_list		= ( $shortcode_generator_list ) ? $shortcode_generator_list : array();
@@ -53,18 +54,18 @@ class Optimalpress_Shortcode_Generator_Manager {
 		add_action( 'current_screen', array( $this, 'render_shortcodes' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_styles' ) );
 		add_action( 'in_admin_footer', array( $this, 'enqueue_footer' ) );
-				
+	
 	}
 	
 	/**
-	 * Add a shortcode to the shortcodes array
+	 * Add a shortcode to the shortcodes array.
 	 *
 	 * @param string	$name			The name for the shortcode.
 	 * @param array		$template 		Array containing each menu item. Each menu contains the controls / fields used in that menu.
 	 * @param string	$modal_title 	Title for the shortcode generator modal, visible to user.
 	 * @param string	$button_title	Button title.
 	 * @param string	$main_image		Image for the button.
-	 * @param string	$post_types		The post type ('post', 'page', 'dashboard', 'link', 'attachment' or 'custom_post_type')
+	 * @param string	$post_types		The post type ('post', 'page', 'dashboard', 'link', 'attachment' or 'custom_post_type').
 	 */
 	public function add_shortcode_generator( $name, $template, $modal_title = '', $button_title = '', $main_image, $post_types = array( 'post', 'page' ) ) {
 		
@@ -77,11 +78,11 @@ class Optimalpress_Shortcode_Generator_Manager {
 			'post_types'	=> $post_types,
 
 		);
-				
+
 	}
 	
 	/**
-	 * Render shortcodes in the page
+	 * Render shortcodes in the page.
 	 *
 	 * This method iterate all shortcodes and it call to Optimalpress Shortcode Generator Class that manage each shortcode.
 	 * Also stores each control used and dependencies.
@@ -127,7 +128,6 @@ class Optimalpress_Shortcode_Generator_Manager {
 	
 	/**
 	 * Enqueue the common scripts and styles.
-	 * 
 	 */
 	public function enqueue_scripts_styles() {
 		
@@ -188,6 +188,7 @@ class Optimalpress_Shortcode_Generator_Manager {
 					<?php
 				
 				}
+				
 				if( in_array( 'link', $control_used ) && ! $link_included ) {
 					
 					$link_included = true;
@@ -261,3 +262,5 @@ class Optimalpress_Shortcode_Generator_Manager {
 	}
 		
 }
+
+?>
