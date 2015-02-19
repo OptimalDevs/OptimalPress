@@ -68,7 +68,7 @@ jQuery( window ).load(function() {
 	jQuery( document ).on( 'click', '.op-remove-media', function(e){
 
 		e.preventDefault();
-		console.log("asd");
+
 		if( jQuery(this).parents( '.input' ).find( '.op-upload-media' ).data( 'multiple' ) ) {
 		
 			var text = jQuery(this).parents( '.input' ).find( '.op-input' ).val().replace( jQuery(this).prev().data( 'id' ), '' );
