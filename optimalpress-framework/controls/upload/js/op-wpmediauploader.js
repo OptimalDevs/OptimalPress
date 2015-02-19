@@ -84,8 +84,6 @@ jQuery( window ).load(function() {
 		jQuery(this).parents( '.input' ).find( '.op-input' ).trigger('change');
 		
 		jQuery(this).parent().remove();
-		
-		
 
 	});
 
