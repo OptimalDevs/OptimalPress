@@ -32,6 +32,7 @@
 	-ms-box-sizing: content-box !important;
 	box-sizing: content-box !important;
 }
+
 /*
 *	Codeeditor
 *
@@ -166,7 +167,6 @@
 	padding-bottom: 15px;
 	padding-top: 15px;
 	margin-bottom: 15px;
-	
 }
 
 .op-control-header-wrapper .title{
@@ -273,7 +273,6 @@
 	border: 1px solid #e5e5e5;
 	border-radius: 3px;
 	margin: 6px 0px;
-	position: relative;
 }
 
 .op-group-wrapper .op-group .op-group-heading {
@@ -286,6 +285,7 @@
 	text-transform: uppercase;
 	padding-right: 80px;
 	height: 35px;
+	position: relative;
 }
 
 .op-loop .op-group .op-group-remove {
