@@ -32,18 +32,18 @@ class OP_Control_Group extends Optimalpress_Control {
 		
 		$this->deps = parent::get_deps();
 
-		foreach( $control_args['fields'] as $group_control ) {
+		foreach( $control_args['fields'] as $control ) {
 			
-			$path = ( isset( $group_control['is_custom'] ) && $group_control['is_custom'] ) ? OP_CUSTOM_CONTROLS_PATH . '/' : OP_PATH . '/controls/';
+			$path = ( isset( $control['is_custom'] ) && $control['is_custom'] ) ? OP_CUSTOM_CONTROLS_PATH . '/' : OP_PATH . '/controls/';
 			
-			require_once( $path . $group_control['type'] . '/class-op-control-' . $group_control['type'] . '.php' );
-			$field_classname 				= 'OP_Control_' . $group_control['type'];
-			$group_control['group_name']	= $name;
-			$control_ins					= new $field_classname( $group_control['type'], $group_control['name'], $group_control );
-			$g_controls[]					= $control_ins;
+			require_once( $path . $control['type'] . '/class-op-control-' . $control['type'] . '.php' );
+			$field_classname 		= 'OP_Control_' . $control['type'];
+			$control['group_name']	= $name;
+			$control_ins			= new $field_classname( $control['type'], $control['name'], $control );
+			$g_controls[]			= $control_ins;
 						
-			$deps			= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $group_control, $control_ins );
-			$controls_used	= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $group_control, $control_ins );
+			$deps			= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $control, $control_ins );
+			$controls_used	= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $control, $control_ins );
 	
 			if( $deps ) {
 				
@@ -78,7 +78,7 @@ class OP_Control_Group extends Optimalpress_Control {
 			'optimalpress-groups', 
 			'optimalpressGroupsData', 
 			array( 
-				'deleteGroupText'	=> 'Are you sure?',
+				'deleteGroupText'	=> __( 'Are you sure?', 'op-domain' ),
 			) 
 		);
 			
@@ -88,28 +88,18 @@ class OP_Control_Group extends Optimalpress_Control {
 	
 	public function validate( $group_fields ) {
 
-		$default = '';
 		$group_options = array();
 				
 		foreach( $group_fields as $key => $field ){
 	
 			if( $key != 'optimalpress-lastkey' && $key != 'lastkey' ){
 			
-				foreach( $this->controls as $group_control ){
+				foreach( $this->controls as $control ){
 
-					$field_value	= isset( $field[ $group_control->name ] ) ? $field[ $group_control->name ]: $default;
-			
-					switch( $group_control->type ){
-			
-						case 'checkbox':
-						case 'checkimage':
-						case 'multiselect':
-						$default = array();
-						
-					}
+					$field_value	= isset( $field[ $control->name ] ) ? $field[ $control->name ]: '';
 					
-					$validate_option 	= $group_control->validate( $field_value );
-					$group_options[ $key ][ $group_control->name ] = $validate_option;
+					$validate_option 	= $control->validate( $field_value );
+					$group_options[ $key ][ $control->name ] = $validate_option;
 
 				}
 				
@@ -145,12 +135,12 @@ class OP_Control_Group extends Optimalpress_Control {
 			<div class="op-controls">
 			<?php
 						
-			foreach( $this->controls as $group_control ){
+			foreach( $this->controls as $control ){
 				
-				$default_value 	= isset( $group_control->default_value ) ? $group_control->default_value : '';
-				$value 			= isset( $field[ $group_control->name ] ) ? $field[ $group_control->name ] : $default_value;
+				$default_value 	= isset( $control->default_value ) ? $control->default_value : '';
+				$value 			= isset( $field[ $control->name ] ) ? $field[ $control->name ] : $default_value;
 				
-				$group_control->render( $value, $name . '[' . $key . ']' . '[' .  $group_control->name . ']', $this->name );	
+				$control->render( $value, $name . '[' . $key . ']' . '[' .  $control->name . ']', $this->name );	
 				
 			}
 			
@@ -164,10 +154,10 @@ class OP_Control_Group extends Optimalpress_Control {
 			<div class="op-controls">
 			<?php
 
-			foreach( $this->controls as $group_control ){
+			foreach( $this->controls as $control ){
 
-				$default_value 	= isset( $group_control->default_value ) ? $group_control->default_value : '';
-				$group_control->render( $default_value, $name . '[optimalpress-lastkey]' . '[' . $group_control->name . ']' );	
+				$default_value 	= isset( $control->default_value ) ? $control->default_value : '';
+				$control->render( $default_value, $name . '[optimalpress-lastkey]' . '[' . $control->name . ']' );	
 
 			}
 
