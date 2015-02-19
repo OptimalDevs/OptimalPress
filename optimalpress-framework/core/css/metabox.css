@@ -1,7 +1,7 @@
 /*
-* Style for General Structure in Metaboxes
-*
-*/
+ * Style for General Structure in Metaboxes
+ *
+ */
 
 .op-metabox .op-hide {
 	display: none;
@@ -63,9 +63,9 @@
 }
 
 /*
-*
-*	Right Metaboxes
-**/
+ * Right Metaboxes
+ *
+ */
 
 #postbox-container-1 .op-metabox .op-field {
 	margin: 15px 0;

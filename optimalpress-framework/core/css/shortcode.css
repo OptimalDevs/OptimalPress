@@ -1,21 +1,22 @@
 /*
-*	Style for Shortcodes Generator
-*
-*/
+ * Style for Shortcodes Generator
+ *
+ */
 
 .op-wrapper a {
 	text-decoration: none;
 }
 
-.op-hide{
+.op-hide {
 	display: none;
 }
 
 /*
-*	Modal Structure
-*
-*/
-.op-modal-overlay{
+ * Modal Structure
+ *
+ */
+ 
+.op-modal-overlay {
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -28,7 +29,7 @@
 	cursor:pointer;
 }
 
-.op-modal .op-close-modal{
+.op-modal .op-close-modal {
 	font-size: 22px;
 	line-height: .5;
 	position: absolute;
@@ -40,11 +41,11 @@
 	cursor: pointer;
 }
 
-.op-modal .op-current{
+.op-modal .op-current {
 	display: block !Important;
 }
 
-.op-modal .op-sub-menu-list{
+.op-modal .op-sub-menu-list {
 	display:none;
 }
 
@@ -99,9 +100,10 @@
 }
 
 /*
-*	Left Side: Menu
-*
-*/
+ * Left Side: Menu
+ *
+ */
+
 .op-modal .op-wrapper .op-menu {
 	display: table-cell;
 	vertical-align: top;
@@ -110,9 +112,10 @@
 }
 
 /*
-*	Right Side
-*
-*/
+ * Right Side
+ *
+ */
+ 
 .op-modal .op-wrapper .op-main {
 	display: table-cell;
 	padding-left: 20px;
@@ -122,9 +125,10 @@
 }
 
 /*
-*	Headings
-*
-*/
+ * Headings
+ *
+ */
+
 .op-wrapper .op-main .op-element-heading {
 	cursor: default;
 	margin: 0;
@@ -149,9 +153,10 @@
 }
 
 /*
-*	Buttons Action: Insert Cancel
-*
-*/
+ * Buttons Action: Insert Cancel
+ *
+ */
+ 
 .op-wrapper .op-action {
 	border-top: 1px solid #fff;
 	padding-top: 15px;
@@ -159,9 +164,9 @@
 }
 
 /*
-* General Structure fields
-*
-*/
+ * General Structure fields
+ *
+ */
 
 .op-modal .op-hide {
 	display: none;

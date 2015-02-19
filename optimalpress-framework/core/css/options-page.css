@@ -1,13 +1,13 @@
 
 /*
-*	Style for Option Page Structure
-*
-*/
-.op-wrap .op-current{
+ * Style for Option Page Structure
+ *
+ */
+.op-wrap .op-current {
 	display: block !Important;
 }
 
-.op-wrap .op-panel{
+.op-wrap .op-panel {
 	display: none;
 	padding: 20px;
 }
@@ -30,9 +30,10 @@
 }
 
 /*
-*	Left side: Menus
-*
-*/
+ * Left side: Menus
+ *
+ */
+ 
 .op-wrap .op-left-panel {
 	background-color: #222;
 	color: #fff;
@@ -87,9 +88,9 @@
 }
 
 /*
-*	Right Side: Options Panel
-*
-*/
+ * Right Side: Options Panel
+ *
+ */
 
 .op-wrap .op-panel>h2 {
 	margin: 10px 0 30px;
@@ -118,9 +119,9 @@
 }
 
 /*
-* General Structure fields
-*
-*/
+ * General Structure fields
+ *
+ */
 
 .op-option-form .op-hide {
 	display: none !important;
@@ -174,9 +175,9 @@
 }
 
 /*
-*	Section
-*
-*/
+ * Section
+ *
+ */
 
 .op-wrap .op-section {
 	background-color: #fff;

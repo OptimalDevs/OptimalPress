@@ -27,15 +27,15 @@ function opInitDependency( opDependencies ) {
 			else if( dependency.group ) { 
 			
 				var dependsOfFields	= jQuery( '#' + opDependency.id + ' .op_group-' + dependency.group + ' .' + dependency.group + '-' + dependency.depends_of );
-				var txt = dependency.group + '-' + dependency.depends_of;
-				var depValues	= dependency.values;
-				var opFields	= jQuery( '#' + opDependency.id + ' .op_loop-' + dependency.group + ' .' + dependency.group + '-' + dependency.field ).parents('.op-field');
+				var txt				= '.' + dependency.group + '-' + dependency.depends_of;
+				var depValues		= dependency.values;
+				var opFields		= jQuery( '#' + opDependency.id + ' .op_loop-' + dependency.group + ' .' + dependency.group + '-' + dependency.field ).parents( '.op-field' );
 	
 				OpCreateDependencyEvents( '#' + opDependency.id + ' .op_loop-' + dependency.group + ' .' + dependency.group + '-' + dependency.depends_of, opFields, dependency.values, '.' + dependency.group + '-' + dependency.field );
 
 				opFields.each( function() {
 
-					opOnLoadDependency( jQuery(this).parent('.op-controls').find('.'+txt), jQuery(this), depValues);
+					opOnLoadDependency( jQuery( this ).parent( '.op-controls' ).find( txt ), jQuery( this ), depValues);
 				
 				});
 				
@@ -55,7 +55,7 @@ function opInitDependency( opDependencies ) {
 }
 
 /*
- * Dependencies OnLoad
+ * Dependencies OnLoad.
  *
  * Performs dependencies on page load.
  *
@@ -67,12 +67,12 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 
 	var fieldValues 	= '';
 	
-	switch( dependsOfField.attr('type') ){
+	switch( dependsOfField.attr( 'type' ) ){
 	
 		case 'checkbox':
 		case 'radio':
 			
-			fieldValues = dependsOfField.is(':checked');
+			fieldValues = dependsOfField.is( ':checked' );
 
 			if( dependsOfField.length > 1 ) {	
 
@@ -80,9 +80,9 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 				
 				dependsOfField.each( function(){
 				
-					if( jQuery(this).is(':checked') ){
+					if( jQuery( this ).is( ':checked' ) ){
 					
-						fieldValues.push( jQuery(this).val() );
+						fieldValues.push( jQuery( this ).val() );
 						
 					}
 					
@@ -95,14 +95,16 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 		default:
 			
 			fieldValues = dependsOfField.val();
+			
 			if( ! fieldValues ){
 				fieldValues = '';
 			}
+			
 			break;
+	
 	}
 		
 	//If the dependent field is an array.
-	
 	if ( jQuery.isArray( fieldValues ) ) {
 		
 		//If the value of the dependencies is an array
@@ -175,7 +177,7 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 
 		if( group ){
 			
-			field = jQuery(this).parents('.op-group').find( group ).parents('.op-field');
+			field = jQuery( this ).parents( '.op-group' ).find( group ).parents( '.op-field' );
 		
 		}
 	
@@ -210,9 +212,8 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				break;
 				
 		}
-				
-		//If the dependent field is an array.
 
+		//If the dependent field is an array.
 		if ( jQuery.isArray( fieldValues ) ) {
 		
 			//If the value of the dependencies is an array
@@ -235,7 +236,6 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				}
 				
 			}
-			
 			//If the value of the dependencies isn't an array (single value)
 			else{
 			
@@ -249,7 +249,7 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 		}
 		//If the dependent field is a single value.
 		else{
-			
+		
 			//If the value of the dependencies is an array
 			if ( jQuery.isArray( dependencyValue ) ) {
 				
@@ -270,7 +270,7 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				}
 				
 			}
-					
+
 		}
 
 	});

@@ -5,7 +5,7 @@ class OP_Control_Checkbox extends Optimalpress_Control {
 	private $items;
 	
 	public function __construct( $type, $name, $control_args ) {
-			
+
 		parent::__construct( $type, $name, $control_args );
 		
 		$this->default_value	= isset( $control_args['default'] ) && is_array( $control_args['default'] ) ? $control_args['default'] : array();
@@ -17,7 +17,7 @@ class OP_Control_Checkbox extends Optimalpress_Control {
 		
 		$value = is_array( $field_value ) ? $field_value : array();
 		return $value;
-			
+
 	}
 
 	protected function render_field( $values, $name ) {

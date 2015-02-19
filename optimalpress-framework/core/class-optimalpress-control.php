@@ -3,72 +3,71 @@
 /**
  * The control class, the parent of all controls.
  */
- 
 class Optimalpress_Control {
 	
 	/**
-	 * Control type
+	 * Control type.
 	 * @var String
 	 */	
 	public $type;
 	
 	/**
-	 * Unique name for the field
+	 * Unique name for the field.
 	 * @var String
 	 */
 	public $name;
 	
 	/**
-	 * Label for the field
+	 * Label for the field.
 	 * @var String
 	 */
 	protected $label;
 	
 	/**
-	 * Description for the field
+	 * Description for the field.
 	 * @var String
 	 */
 	protected $description;
 	
 	/**
-	 * Default value for the field
+	 * Default value for the field.
 	 * @var String|Array
 	 */
 	public $default_value;
 	
 	/**
-	 * Dependencies for the field
+	 * Dependencies for the field.
 	 * @var String|Array
 	 */
 	private $dependency;
 	
 	/**
-	 * Class name for the control container
+	 * Class name for the control container.
 	 * @var String
 	 */
 	protected $container_classes;
 	
 	/**
-	 * Class name for the field it self
+	 * Class name for the field it self.
 	 * @var String
 	 */
 	protected $field_classes;
 	
 	/**
-	 * Indicating whether the control is custom
+	 * Indicating whether the control is custom.
 	 * @var bool
 	 */
 	protected $is_custom;
 	
 	/**
-	 * Setup the control object
+	 * Setup the control object.
 	 *
-	 * @param String 	$type			Control type
-	 * @param String 	$name			Unique name for the field
-	 * @param Array 	$control_args	Contains the control args needed to create each control
+	 * @param String 	$type			Control type.
+	 * @param String 	$name			Unique name for the field.
+	 * @param Array 	$control_args	Contains the control args needed to create each control.
 	 */
 	public function __construct( $type, $name, $control_args ) {
-					
+	
 		$this->type					= $type;
 		$this->name 				= $name;
 		$this->is_custom			= ( isset( $control_args['is_custom'] ) ) ? $control_args['is_custom'] : false;
@@ -97,30 +96,30 @@ class Optimalpress_Control {
 	}
 	
 	/**
-	 * Enqueue the scripts and styles that each control needs
+	 * Enqueue the scripts and styles that each control needs.
 	 * 
 	 */
 	public function enqueue_scripts_styles() {
 	
 		return;
-			
+	
 	}
 	
 	/**
-	 * Validate function for each control
+	 * Validate function for each control.
 	 *
 	 * @param mixed 	$value	The value of the field to be validated.
 	 *
-	 * @return mixed Returns the validated value
+	 * @return mixed Returns the validated value.
 	 */
 	public function validate( $value ) {
 
 		return $value;
-			
+	
 	}
 	
 	/**
-	 * Render the control in frontend
+	 * Render the control in frontend.
 	 * 
 	 * @param mixed 	$value	The value of the field.
 	 * @param string	$name 	The name of the field. (Optional) If empty, the name will be the name of the control.
@@ -152,7 +151,7 @@ class Optimalpress_Control {
 		</div>
 		
 		<?php
-		
+
 	}
 	
 	/**
@@ -167,6 +166,9 @@ class Optimalpress_Control {
 		
 	}
 	
+	/**
+	 * Get dependencies.
+	 */
 	public function get_deps() {
 		
 		$return	= false;
@@ -187,17 +189,24 @@ class Optimalpress_Control {
 		
 	}
 	
+	/**
+	 * Get all control used.
+	 */
 	public function get_controls_used() {
 
 		return array( $this->type );
 		
 	}
 	
+	/**
+	 * Get controls object.
+	 */
 	public function get_controls_inst() {
 
 		return array( $this );
 		
 	}
+	
 }
 
 ?>

@@ -56,7 +56,7 @@ class Optimalpress_Shortcode_Generator {
 	private $menu_inst;
 	
 	/*
-	 *	Constructor
+	 *	Constructor.
 	 *
 	 * @param string	$name			The name for the shortcode.
 	 * @param array		$template 		Array containing each menu item. Each menu contains the controls / fields used in that menu.
@@ -66,7 +66,7 @@ class Optimalpress_Shortcode_Generator {
 	 * @param string	$post_types		The post type ('post', 'page', 'dashboard', 'link', 'attachment' or 'custom_post_type')
 	 */
     public function __construct( $name, $template, $modal_title, $button_title , $main_image ) {
-				
+
 		$this->name 			= $name;
 		$this->template			= $template;
 		$this->modal_title		= $modal_title;
@@ -137,10 +137,9 @@ class Optimalpress_Shortcode_Generator {
 	}
 	
 	/**
-     * Print Modal
+     * Print Modal.
 	 *
 	 * This function prints the structure containing all sections of shortcodes.
-     *
      */ 
 	public function print_modal() {
 	
@@ -206,7 +205,7 @@ class Optimalpress_Shortcode_Generator {
 	}
 	
 	/**
-     * Print Controls Inside Modal
+     * Print Controls Inside Modal.
 	 *
 	 * This function prints each control within each section.
      *
@@ -234,7 +233,7 @@ class Optimalpress_Shortcode_Generator {
 	}
 	
     /**
-     * Create a "Shortcode Generator" button for tinymce
+     * Create a "Shortcode Generator" button for tinymce.
      *
      */
     public function set_shortcode_generator_button() {
@@ -249,7 +248,7 @@ class Optimalpress_Shortcode_Generator {
     }
 
     /**
-     * Add new Javascript to the plugin script array
+     * Add new Javascript to the plugin script array.
      *
      * @param  Array $plugin_array - Array of scripts
      *
@@ -264,7 +263,7 @@ class Optimalpress_Shortcode_Generator {
     }
 
     /**
-     * Add new button to tinymce
+     * Add new button to tinymce.
      *
      * @param  Array $buttons - Array of buttons
      *
@@ -273,13 +272,13 @@ class Optimalpress_Shortcode_Generator {
     public function register_buttons( $buttons ) {
 	
         array_push( $buttons, $this->name );
-				
+	
         return $buttons;
     
 	}
 	
 	/**
-     * Get all deps
+     * Get all deps.
      *
      * @return Array 
      */
@@ -290,7 +289,7 @@ class Optimalpress_Shortcode_Generator {
 	}
 	
 	/**
-     * Get all used controls
+     * Get all used controls.
      *
      * @return Array 
      */
@@ -301,3 +300,5 @@ class Optimalpress_Shortcode_Generator {
 	}
 
 }
+
+?>

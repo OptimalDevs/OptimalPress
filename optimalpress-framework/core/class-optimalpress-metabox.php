@@ -5,7 +5,6 @@
  *
  * This class is responsible for creating the METABOX, iterate all the controls and display them on screen and saves the METABOX in the database. 
  */
- 
 class Optimalpress_Metabox {
 	
 	/**
@@ -73,7 +72,7 @@ class Optimalpress_Metabox {
 		$this->controls_used	= array();
 		
 		foreach( $metabox_fields as $control ) {
-							
+
 			$path = ( isset( $control['is_custom'] ) && $control['is_custom'] ) ? OP_CUSTOM_CONTROLS_PATH . '/' : OP_PATH . '/controls/';
 			
 			require_once( $path . $control['type'] . '/class-op-control-' . $control['type'] . '.php' );
@@ -95,7 +94,7 @@ class Optimalpress_Metabox {
 				$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
 				
 			}
-						
+
 		}
 		
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );	
@@ -128,7 +127,7 @@ class Optimalpress_Metabox {
 	public function get_deps() {
 		
 		return ( ! empty( $this->deps ) ) ? $this->deps : false;
-		
+
 	}
 	
 	/**
@@ -138,7 +137,7 @@ class Optimalpress_Metabox {
 	public function get_controls_used() {
 		
 		return ( ! empty( $this->controls_used ) ) ? $this->controls_used : false;
-		
+
 	}
 	
 	/**

@@ -19,7 +19,7 @@ class OP_Control_CheckImage extends Optimalpress_Control {
 		wp_enqueue_style( 'jquery-tipsy', OP_URL . '/controls/public/css/tipsy.css', array(), '1.0' );
 		
 		return;
-			
+	
 	}
 	
 	public function validate( $field_value ) {
@@ -44,7 +44,7 @@ class OP_Control_CheckImage extends Optimalpress_Control {
 			<?php endif; ?>
 		</div>
 		<?php
-		
+
 	}
 
 }
