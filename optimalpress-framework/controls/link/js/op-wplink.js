@@ -399,14 +399,12 @@ var opwpLink;
 
 /**
  * Link Selector for Module Title
- * ----------------------------------------------------------------------------
  */
-
 jQuery( window ).load(function() {
 	
 	var selectedModuleObject;
 
-	jQuery('body').on( 'click', '.op_open_popup_link_editor_button', function(event) {
+	jQuery( 'body' ).on( 'click', '.op_open_popup_link_editor_button', function(event) {
 		
 		event.preventDefault();
 
@@ -422,7 +420,7 @@ jQuery( window ).load(function() {
 
 	});
 	
-	jQuery('body').on( 'click', '.op_open_popup_link_editor_button_shortcode', function(event) {
+	jQuery( 'body' ).on( 'click', '.op_open_popup_link_editor_button_shortcode', function(event) {
 		
 		event.preventDefault();
 
@@ -447,7 +445,7 @@ jQuery( window ).load(function() {
 			selectedModuleObject.siblings( '.op_title_link_container' ).css( 'display', 'table-cell' );
 			selectedModuleObject.siblings( '.op_title_link_container' ).find( '.op_module_link_span' ).html( linkAtts.href );
 		
-			//For Shortcodes Nota: si vas a hacer dependecias en shortcodes tienes que hacer el trigger
+			//For Shortcode generator
 			selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_url"]' ).val( linkAtts.href );
 			selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_title"]' ).val( linkAtts.title );
 			selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_target"]' ).val( linkAtts.target );
@@ -459,26 +457,25 @@ jQuery( window ).load(function() {
 
 	});
 
-	jQuery('body').on( 'click', '.op-remove-link-button', function(event) {
+	jQuery( 'body ').on( 'click', '.op-remove-link-button', function(event) {
 
 		event.preventDefault();
 		var selected = jQuery( this );
 
-		selected.parent().siblings( '.op-url-input' ).val('');
-		selected.parent().siblings( '.op-url-input' ).trigger('change');
-		selected.parent().siblings( '.op-title-input' ).val('');
-		selected.parent().siblings( '.op-target-input' ).val('');
+		selected.parent().siblings( '.op-url-input' ).val( '' );
+		selected.parent().siblings( '.op-url-input' ).trigger( 'change' );
+		selected.parent().siblings( '.op-title-input' ).val( '' );
+		selected.parent().siblings( '.op-target-input' ).val( '' );
 		
 		selected.parent().hide();
 		
 		selected.parent().siblings( '.op_open_popup_link_editor_button' ).html( op_wplink_data.add_link_text  );
 		
-		//For Shortcode
-		selectedModuleObject.parents('.op-sc-fields').find('input[name="_link_url"]').val( '' );
-		selectedModuleObject.parents('.op-sc-fields').find('input[name="_link_title"]').val( '' );
-		selectedModuleObject.parents('.op-sc-fields').find('input[name="_link_target"]').val( '' );
+		//For Shortcode generator
+		selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_url"]' ).val( '' );
+		selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_title"]' ).val( '' );
+		selectedModuleObject.parents( '.op-sc-fields' ).find( 'input[name="_link_target"]' ).val( '' );
 		
-
 	});
 
 });

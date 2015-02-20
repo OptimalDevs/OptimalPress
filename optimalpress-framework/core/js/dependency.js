@@ -19,7 +19,7 @@ function opInitDependency( opDependencies ) {
 			if( dependency.shortcode_group ) {
 				
 				var dependsOfField	= jQuery( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.depends_of );
-				var opField			= jQuery( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.field ).parents('.op-field');
+				var opField			= jQuery( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.field ).parents( '.op-field' );
 				opOnLoadDependency( dependsOfField, opField, dependency.values );
 				OpCreateDependencyEvents( '#' + opDependency.id + ' .op-sc-group-' + dependency.shortcode_group + ' .op-input.' + dependency.depends_of, opField, dependency.values, false );
 				
@@ -35,7 +35,7 @@ function opInitDependency( opDependencies ) {
 
 				opFields.each( function() {
 
-					opOnLoadDependency( jQuery( this ).parent( '.op-controls' ).find( txt ), jQuery( this ), depValues);
+					opOnLoadDependency( jQuery( this ).parent( '.op-controls' ).find( txt ), jQuery( this ), depValues );
 				
 				});
 				
@@ -96,9 +96,7 @@ function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 			
 			fieldValues = dependsOfField.val();
 			
-			if( ! fieldValues ){
-				fieldValues = '';
-			}
+			fieldValues = ! fieldValues ? '' : fieldValues;
 			
 			break;
 	
@@ -183,19 +181,20 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 	
 		var fieldValues = '';
 		
-		switch( jQuery(this).attr('type') ){
+		switch( jQuery( this ).attr( 'type' ) ){
 	
 			case 'checkbox':
-				fieldValues = jQuery(this).is(':checked');
+			
+				fieldValues = jQuery( this ).is( ':checked' );
 
-				if( jQuery(this).parents('.input').find('.op-input').length > 1 ) {	
+				if( jQuery( this ).parents( '.input' ).find( '.op-input' ).length > 1 ) {	
 
 					fieldValues = [];	
 					
-					jQuery(this).parents('.input').find('.op-input').each( function(){
-						if( jQuery(this).is(':checked') ){
+					jQuery( this ).parents( '.input' ).find( '.op-input' ).each( function(){
+						if( jQuery( this ).is( ':checked' ) ){
 
-							fieldValues.push(jQuery(this).val());
+							fieldValues.push( jQuery( this ).val() );
 						}
 					});
 					
@@ -204,10 +203,10 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				break;
 				
 			default:
-				fieldValues = jQuery(this).val();
-				if( ! fieldValues ){
-					fieldValues = '';
-				}
+			
+				fieldValues = jQuery( this ).val();
+				
+				fieldValues = ! fieldValues ? '' : fieldValues;
 				
 				break;
 				
@@ -230,9 +229,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				}
 				
 				if ( sw == 0){
-					field.hide('slow');
+					field.hide( 'slow' );
 				}else{
-					field.show('slow');
+					field.show( 'slow' );
 				}
 				
 			}
@@ -240,9 +239,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			else{
 			
 				if( fieldValues.indexOf( dependencyValue ) >= 0 || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ) {
-					field.show('slow');
+					field.show( 'slow' );
 				}else{
-					field.hide('slow');
+					field.hide( 'slow' );
 				}
 			}
 		
@@ -254,9 +253,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			if ( jQuery.isArray( dependencyValue ) ) {
 				
 				if( dependencyValue.indexOf( fieldValues ) >=0 || ( fieldValues.length == 0 && dependencyValue == '{{not-empty}}' ) ) {
-					field.show('slow');
+					field.show( 'slow' );
 				}else{
-					field.hide('slow');
+					field.hide( 'slow' );
 				}
 				
 			}
@@ -264,9 +263,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			else{
 				
 				if( fieldValues == dependencyValue || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ){
-					field.show('slow');
+					field.show( 'slow' );
 				}else{
-					field.hide('slow');
+					field.hide( 'slow' );
 				}
 				
 			}

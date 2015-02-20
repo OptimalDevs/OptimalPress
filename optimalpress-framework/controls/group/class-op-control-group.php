@@ -1,19 +1,47 @@
 <?php
 
 class OP_Control_Group extends Optimalpress_Control {
-		
+	
+	/**
+	 * Indicates if can reorder elements in the list.
+	 * @var Array
+	 */
 	public $sortable;
 	
+	/**
+	 * All control object used in the group.
+	 * @var ArrayObj
+	 */
 	public $controls;
-		
+	
+	/**
+	 * Add new element in the group text. By default "Add New".
+	 * @var string
+	 */
 	private $add_new_button_text;
 	
+	/**
+	 * Default title or each element in the group.
+	 * @var string
+	 */
 	private $default_title;
 	
+	/**
+	 * Indicates the name of the control to takes the value for add to the title.
+	 * @var string
+	 */
 	private $dynamic_title;
 	
+	/**
+	 * Dependencies all controls inside the group.
+	 * @var Array
+	 */
 	private $deps;
 	
+	/**
+	 * The name of all controls used in the group.
+	 * @var Array
+	 */
 	private $controls_used;
 		
 	public function __construct( $type, $name, $control_args ) {
@@ -41,9 +69,9 @@ class OP_Control_Group extends Optimalpress_Control {
 			$control['group_name']	= $name;
 			$control_ins			= new $field_classname( $control['type'], $control['name'], $control );
 			$g_controls[]			= $control_ins;
-						
-			$deps			= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $control, $control_ins );
-			$controls_used	= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $control, $control_ins );
+			
+			$deps					= apply_filters( 'op_apply_control_deps', $control_ins->get_deps(), $control, $control_ins );
+			$controls_used			= apply_filters( 'op_apply_controls_used', $control_ins->get_controls_used(), $control, $control_ins );
 	
 			if( $deps ) {
 				
@@ -54,7 +82,7 @@ class OP_Control_Group extends Optimalpress_Control {
 				$this->deps				=  array_merge( $this->deps, $deps );
 				
 			}
-						
+			
 			if( $controls_used ) {
 			
 				$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
@@ -118,7 +146,7 @@ class OP_Control_Group extends Optimalpress_Control {
 
 	public function render( $group_fields, $name = false ) {
 		
-		$name	= ( ! $name ) ? $this->name : $name;
+		$name			= ( ! $name ) ? $this->name : $name;
 		$last_key 		= isset( $group_fields['lastkey'] ) && ! empty( $group_fields['lastkey'] ) ? intval( $group_fields['lastkey'] ) : 1;
 		$sortable_class	=  $this->sortable ? ' op-sortable' : '';
 
@@ -190,7 +218,6 @@ class OP_Control_Group extends Optimalpress_Control {
 		
 	}
 	
-
 }
 
 ?>

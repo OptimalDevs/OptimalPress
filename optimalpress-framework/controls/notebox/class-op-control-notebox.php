@@ -2,16 +2,24 @@
 
 class OP_Control_NoteBox extends Optimalpress_Control {
 	
+	/**
+	 * Items for the notebox (normal, info, success, warning, error). 
+	 * @var String
+	 */
 	private $status;
 	
+	/**
+	 * Indicates if the notebox will be hidden or not. 
+	 * @var bool
+	 */
 	private $hidden;
 	
 	public function __construct( $type, $name, $control_args ) {
 		
 		parent::__construct( $type, $name, $control_args );
 		
-		$this->is_hidden		= isset( $control_args['hidden'] ) ? ' op-hide' : '';
-		$this->status			= isset( $control_args['status'] ) ? $control_args['status'] : 'normal';
+		$this->is_hidden	= isset( $control_args['hidden'] ) ? ' op-hide' : '';
+		$this->status		= isset( $control_args['status'] ) ? $control_args['status'] : 'normal';
 
 	}
 	
@@ -20,13 +28,13 @@ class OP_Control_NoteBox extends Optimalpress_Control {
 		wp_enqueue_style( 'font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css', array(), '4.1.0' );	
 		
 		return;
-			
+	
 	}
 	
 	public function validate( $field_value ) {
 	
 		return null;
-			
+	
 	}
 
 	public function render( $value, $name = false ) {
@@ -34,9 +42,11 @@ class OP_Control_NoteBox extends Optimalpress_Control {
 		$name	= ( ! $name ) ? $this->name : $name;
 		
 		?>
-		<div class="<?php echo esc_attr($this->is_hidden);?> not-sc op-control-notebox-wrapper note-<?php echo esc_attr( $this->status ); ?> <?php echo $this->container_classes; ?>" id="field-<?php echo esc_attr( $name ); ?>" >
+		<div class="<?php echo esc_attr( $this->is_hidden );?> not-sc op-control-notebox-wrapper note-<?php echo esc_attr( $this->status ); ?> <?php echo esc_attr( $this->container_classes ); ?>" id="field-<?php echo esc_attr( $name ); ?>" >
 
-			<?php switch( $this->status ) {
+			<?php 
+			switch( $this->status ) {
+				
 				case 'normal':
 					$icon_class = 'fa-lightbulb-o';
 					break;
@@ -55,7 +65,9 @@ class OP_Control_NoteBox extends Optimalpress_Control {
 				default:
 					$icon_class = 'fa-lightbulb-o';
 					break;
-			} ?>
+					
+			}
+			?>
 			<i class="fa <?php echo esc_attr( $icon_class ); ?>"></i>
 			<div class="label"><?php echo esc_attr( $this->label ); ?></div>
 			<?php if( ! empty( $this->description ) ) : ?>

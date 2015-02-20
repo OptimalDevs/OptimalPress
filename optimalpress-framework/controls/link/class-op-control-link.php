@@ -47,9 +47,9 @@ class OP_Control_Link extends Optimalpress_Control {
 		?>
 		<div class="input op-control-link">
 			<button class="button button-large op_open_popup_link_editor_button"><?php echo ( isset( $value['url'] ) && ! empty( $value['url'] ) ) ? esc_html__( 'Edit Link', 'optimalpress-domain' ): esc_html__( 'Add Link', 'optimalpress-domain' ); ?></button><div class="op_title_link_container" style="display:<?php echo ( ( ! empty( $value['url'] ) ) ? 'inline-block;' : 'none;' ) ?>"><span class="op_module_link_span"><?php echo ( ( isset( $value['url'] ) ) ? esc_html( $value['url'] ) : '' ); ?></span><i class="op-remove-link-button fa fa-times-circle"></i></div>
-			<input type="hidden" id="<?php echo esc_attr( $name ); ?>" class="op-input op-url-input cmb_text_link <?php echo $this->field_classes; ?>" name="<?php echo $name . '[url]'; ?>" value="<?php echo ( ( isset( $value['url'] ) ) ? esc_attr( $value['url'] ) : '' ) ?>" />
-			<input type="hidden" class="op-title-input" name="<?php echo $name . '[title]'; ?>" value="<?php echo ( ( isset( $value['title'] ) ) ? esc_attr( $value['title'] ) : '' ) ?>" />
-			<input type="hidden" class="op-target-input" name="<?php echo $name . '[target]'; ?>" value="<?php echo ( ( isset( $value['target'] ) ) ? esc_attr( $value['target'] ) : '' ) ?>" />
+			<input type="hidden" id="<?php echo esc_attr( $name ); ?>" class="op-input op-url-input cmb_text_link <?php echo esc_attr( $this->field_classes ); ?>" name="<?php echo esc_attr( $name ) . '[url]'; ?>" value="<?php echo ( ( isset( $value['url'] ) ) ? esc_attr( $value['url'] ) : '' ) ?>" />
+			<input type="hidden" class="op-title-input" name="<?php echo esc_attr( $name ) . '[title]'; ?>" value="<?php echo ( ( isset( $value['title'] ) ) ? esc_attr( $value['title'] ) : '' ) ?>" />
+			<input type="hidden" class="op-target-input" name="<?php echo esc_attr( $name ) . '[target]'; ?>" value="<?php echo ( ( isset( $value['target'] ) ) ? esc_attr( $value['target'] ) : '' ) ?>" />
 		</div>
 		<?php
 		

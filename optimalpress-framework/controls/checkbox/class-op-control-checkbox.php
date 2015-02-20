@@ -1,7 +1,11 @@
 <?php
 
 class OP_Control_Checkbox extends Optimalpress_Control {
-
+	
+	/**
+	 * Items for the checkbox list.
+	 * @var string
+	 */
 	private $items;
 	
 	public function __construct( $type, $name, $control_args ) {
@@ -31,7 +35,7 @@ class OP_Control_Checkbox extends Optimalpress_Control {
 		?>
 		<label>
 			<?php $checked =( in_array( $item['value'], $values ) ); ?>
-			<input <?php if( $checked ) echo 'checked'; ?> class="op-input <?php echo $this->field_classes; ?><?php if( $checked ) echo " checked"; ?>" type="checkbox" name="<?php echo esc_attr( $name ); ?>[]" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $item['value'] ); ?>" />
+			<input <?php if( $checked ) echo 'checked'; ?> class="op-input <?php echo esc_attr( $this->field_classes ); ?><?php if( $checked ) echo " checked"; ?>" type="checkbox" name="<?php echo esc_attr( $name ); ?>[]" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $item['value'] ); ?>" />
 			<span></span><?php echo esc_attr( $item['label'] ); ?>
 		</label>
 		<?php

@@ -74,9 +74,9 @@ class Optimalpress_Control {
 		$this->label 				= ( isset( $control_args['label'] ) ) ? $control_args['label'] : '';
 		$this->description 			= ( isset( $control_args['description'] ) ) ? $control_args['description'] : '';
 		$this->default_value		= ( isset( $control_args['default'] ) ) ? $control_args['default'] : '';
-		$this->container_classes	= ( isset( $control_args['container_classes'] ) ) ? sanitize_html_class( $control_args['container_classes'] ) : '';	
+		$this->container_classes	= ( isset( $control_args['container_classes'] ) ) ?  $control_args['container_classes'] : '';	
 		$field_classes				= ( isset( $control_args['group_name'] ) && ! empty( $control_args['group_name'] ) ) ? sanitize_html_class( $control_args['group_name'] ) . '-' . $this->name : 'op-single ' . $this->name;
-		$field_extra_classes		= ( isset( $control_args['field_classes'] ) ) ? sanitize_html_class( $control_args['field_classes'] ) : '';
+		$field_extra_classes		= ( isset( $control_args['field_classes'] ) ) ? $control_args['field_classes'] : '';
 		$this->field_classes		= $field_classes . ' ' . $field_extra_classes;
 		$this->dependency			= '';
 		

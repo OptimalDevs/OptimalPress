@@ -14,9 +14,9 @@ jQuery( window ).load(function() {
 function opLoadDatePickerScript(){
 	jQuery( '.optimalpress-datepicker' ).each( function(){
 	
-		jQuery(this).datetimepicker({
-			format : jQuery(this).data('op-format'),
-			timepicker : jQuery(this).data('op-timepicker'),
+		jQuery( this ).datetimepicker({
+			format : jQuery( this ).data( 'op-format' ),
+			timepicker : jQuery( this ).data( 'op-timepicker' ),
 			
 		});
 	
