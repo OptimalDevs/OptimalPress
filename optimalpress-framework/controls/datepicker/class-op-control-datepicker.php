@@ -1,9 +1,17 @@
 <?php
 
 class OP_Control_DatePicker extends Optimalpress_Control {
-
+	
+	/**
+	 * Format for the date and time. By default: 'Y-m-d H:i:s'
+	 * @var string
+	 */
 	private $format;
 	
+	/**
+	 * Show or not the time picker.
+	 * @var bool
+	 */
 	private $show_time_picker;
 	
 	public function __construct( $type, $name, $control_args ) {
@@ -22,12 +30,11 @@ class OP_Control_DatePicker extends Optimalpress_Control {
 		wp_enqueue_script( 'optimalpress-datepicker', OP_URL . '/controls/' . $this->type . '/js/op-date-time-picker.js', array(), '1.0', true );
 		
 		return;
-			
+	
 	}
 	
 	public function validate( $field_value ) {
-	
-		// Sanitize the user input.
+
 		$value = sanitize_text_field( $field_value );
 		
 		return $value;
@@ -38,10 +45,10 @@ class OP_Control_DatePicker extends Optimalpress_Control {
 	
 		?>
 		<div class="field op-control-datepicker">
-			<input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="optimalpress-datepicker op-input <?php echo $this->field_classes; ?>" value="<?php echo esc_attr( $value ); ?>" data-op-format="<?php echo esc_attr( $this->format ); ?>" data-op-timepicker="<?php echo esc_attr( $this->show_time_picker ); ?>" />
+			<input type="text" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" class="optimalpress-datepicker op-input <?php echo esc_attr( $this->field_classes ); ?>" value="<?php echo esc_attr( $value ); ?>" data-op-format="<?php echo esc_attr( $this->format ); ?>" data-op-timepicker="<?php echo esc_attr( $this->show_time_picker ); ?>" />
 		</div>
 		<?php
-		
+	
 	}
 
 }

@@ -2,19 +2,36 @@
 
 class OP_Control_Section extends Optimalpress_Control {
 	
+	/**
+	 * Controls used in this section. 
+	 * @var array
+	 */
 	private $controls_used;
+	
+	/**
+	 * Dependencies for this section. 
+	 * @var array
+	 */
 	private $deps;
+	
+	/**
+	 * Title of this section. 
+	 * @var array
+	 */
 	public $title;
+	
+	/**
+	 * All the controls object used in this section. 
+	 * @var arrayObj
+	 */
 	public $controls;
-	public $is_section;
-			
+	
 	public function __construct( $type, $name, $control_args ) {
 		
 		parent::__construct( $type, $name, $control_args );
 		
 		$this->default_value	= isset( $control_args['default'] ) ? $control_args['default'] : array();
 		$this->title			= isset( $control_args['title'] )  ? $control_args['title'] : '';
-		$this->is_section		= true;
 		$this->deps				= array();
 		$this->controls_used	= array();
 		
@@ -30,12 +47,12 @@ class OP_Control_Section extends Optimalpress_Control {
 			$control_obj					= new $field_classname( $group_control['type'], $group_control['name'], $group_control );
 			$g_controls[]					= $control_obj;
 			
-			$deps					= apply_filters( 'op_apply_control_deps', $control_obj->get_deps(), $group_control, $control_obj );
-			$controls_used			= apply_filters( 'op_apply_controls_used', $control_obj->get_controls_used(), $group_control, $control_obj );
+			$deps			= apply_filters( 'op_apply_control_deps', $control_obj->get_deps(), $group_control, $control_obj );
+			$controls_used	= apply_filters( 'op_apply_controls_used', $control_obj->get_controls_used(), $group_control, $control_obj );
 			
 			if( $deps ) {
 			
-				$this->deps				=  array_merge( $this->deps, $deps );
+				$this->deps	=  array_merge( $this->deps, $deps );
 				
 			}
 			
@@ -66,7 +83,7 @@ class OP_Control_Section extends Optimalpress_Control {
 	public function validate( $group_fields ) {
 
 		return;
-			
+	
 	}
 
 	public function render( $group_fields, $name = false ) {
@@ -92,7 +109,7 @@ class OP_Control_Section extends Optimalpress_Control {
 		}
 		
 		return $return;
-				
+	
 	}
 	
 	public function get_controls_used(){
@@ -102,8 +119,9 @@ class OP_Control_Section extends Optimalpress_Control {
 	}
 	
 	public function get_control_inst() {
-			
+	
 		return $this->controls;
+		
 	}
 
 }

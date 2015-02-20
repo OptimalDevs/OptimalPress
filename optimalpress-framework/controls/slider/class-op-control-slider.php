@@ -2,10 +2,22 @@
 
 class OP_Control_Slider extends Optimalpress_Control {
 	
+	/**
+	 * The maximum value of the slider.
+	 * @var int
+	 */
 	private $min;
 	
+	/**
+	 * The minimum value of the slider.
+	 * @var int
+	 */
 	private $max;
 	
+	/**
+	 * Determines the size or amount of each interval or step the slider takes between the min and max. 
+	 * @var int
+	 */
 	private $step;
 	
 	public function __construct( $type, $name, $control_args ) {
@@ -31,7 +43,6 @@ class OP_Control_Slider extends Optimalpress_Control {
 	
 	public function validate( $field_value ) {
 	
-		// Sanitize the user input.
 		$value = is_numeric( $field_value ) ? $field_value : 0;
 
 		return $value;
@@ -42,7 +53,7 @@ class OP_Control_Slider extends Optimalpress_Control {
 	
 		?>
 		<div class="input op-control-slider">
-			<input type="text" name="<?php echo esc_attr( $name ); ?>" class="op-input slideinput <?php echo $this->field_classes; ?>" value="<?php echo esc_attr( $value ); ?>" />
+			<input type="text" name="<?php echo esc_attr( $name ); ?>" class="op-input slideinput <?php echo esc_attr( $this->field_classes ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 			<div class="optimalpress-slider" id="<?php echo esc_attr( $name ); ?>" data-min="<?php echo esc_attr( $this->min ); ?>" data-max="<?php echo esc_attr( $this->max ); ?>" data-step="<?php echo esc_attr( $this->step ); ?>" data-value="<?php echo esc_attr( $value ); ?>"></div>
 		</div>
 		<?php

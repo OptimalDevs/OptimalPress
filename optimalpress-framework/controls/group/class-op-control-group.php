@@ -54,7 +54,7 @@ class OP_Control_Group extends Optimalpress_Control {
 				$this->deps				=  array_merge( $this->deps, $deps );
 				
 			}
-						
+			
 			if( $controls_used ) {
 			
 				$this->controls_used	=  array_merge( $this->controls_used, $controls_used );
@@ -118,7 +118,7 @@ class OP_Control_Group extends Optimalpress_Control {
 
 	public function render( $group_fields, $name = false ) {
 		
-		$name	= ( ! $name ) ? $this->name : $name;
+		$name			= ( ! $name ) ? $this->name : $name;
 		$last_key 		= isset( $group_fields['lastkey'] ) && ! empty( $group_fields['lastkey'] ) ? intval( $group_fields['lastkey'] ) : 1;
 		$sortable_class	=  $this->sortable ? ' op-sortable' : '';
 
@@ -190,7 +190,6 @@ class OP_Control_Group extends Optimalpress_Control {
 		
 	}
 	
-
 }
 
 ?>

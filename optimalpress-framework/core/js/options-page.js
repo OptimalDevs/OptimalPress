@@ -5,10 +5,9 @@
  * This script manage the backend theme options.
  * Switch between tabs and save settings by Ajax.
  */
-jQuery( window ).load(function() {
+jQuery( window ).load( function() {
 	
 	//Call function that handles dependencies.
-	
 	if( optimalpressData.dependency ){
 		
 		opInitDependency( optimalpressData.dependency );
@@ -56,23 +55,23 @@ jQuery( window ).load(function() {
 		e.preventDefault();
 		
 		jQuery.ajax({
-					
+			
 				url:		optimalpressData.ajaxurl,
 				data:		'nonce=' + optimalpressData.nonce + '&action=optimalpress_save_options_page_hook&' + jQuery( '#op-option-form' ).serialize(),
 				type:		'POST',
 				dataType:	'json',
-				  
+
 			})
 			.done ( function( data ) {
 
 				console.log( data.message );
-				location.reload();//Recargar despues de ajax??
+				location.reload();//Reload after Ajax?
 				
 			} )		
 			.fail( function( jqXHR, textStatus, errorThrown ) {
 
-				console.log( "Request failed: " + textStatus );
-				console.log( "Error Thrown: " + errorThrown );
+				console.log( 'Request failed: ' + textStatus );
+				console.log( 'Error Thrown: ' + errorThrown );
 			
 			});
 		

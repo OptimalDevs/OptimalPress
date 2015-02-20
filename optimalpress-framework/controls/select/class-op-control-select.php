@@ -2,14 +2,22 @@
 
 class OP_Control_Select extends Optimalpress_Control {
 	
+	/**
+	 * Items for the "select" input. 
+	 * @var array
+	 */
 	private $items;
 	
+	/**
+	 * Indicates if the select input will be multiple or not. 
+	 * @var string
+	 */
 	private $multiple;
 	
 	public function __construct( $type, $name, $control_args ) {
 		
 		parent::__construct( $type, $name, $control_args );
-				
+	
 		$this->items	= isset( $control_args['items'] ) && is_array( $control_args['items'] ) ? $control_args['items'] : null;
 		$this->multiple	= isset( $control_args['multiple'] ) && $control_args['multiple'] == true ? 'multiple' : '';
 		
@@ -28,7 +36,7 @@ class OP_Control_Select extends Optimalpress_Control {
 		wp_enqueue_script( 'optimalpress-chosen-jquery', OP_URL . '/controls/public/js/chosen.jquery.min.js', array(), '1.0', true );
 		
 		return;
-			
+	
 	}
 	
 	public function validate( $field_value ) {
@@ -47,7 +55,7 @@ class OP_Control_Select extends Optimalpress_Control {
 
 		?>
 		<div class="input op-control-select">
-			<select <?php echo $this->multiple; ?> name="<?php echo esc_attr( $name ); ?><?php echo ( $this->multiple ) ? '[]' : ''; ?>" id="<?php echo esc_attr( $name ); ?>" class="op-input optimalpress-chosen-select <?php echo $this->field_classes; ?>" autocomplete="off" style="width:100%;">
+			<select <?php echo $this->multiple; ?> name="<?php echo esc_attr( $name ); ?><?php echo ( $this->multiple ) ? '[]' : ''; ?>" id="<?php echo esc_attr( $name ); ?>" class="op-input optimalpress-chosen-select <?php echo esc_attr( $this->field_classes ); ?>" autocomplete="off" style="width:100%;">
 				<option></option>
 				<?php if( ! empty( $this->items ) ) : 
 				foreach( $this->items as $item ): ?>
@@ -57,7 +65,7 @@ class OP_Control_Select extends Optimalpress_Control {
 			</select>
 		</div>
 		<?php
-		
+	
 	}
 
 }

@@ -1,7 +1,11 @@
 <?php
 
 class OP_Control_Radioimage extends Optimalpress_Control {
-
+	
+	/**
+	 * Items for the "radio" input. 
+	 * @var array
+	 */
 	private $items;
 		
 	public function __construct( $type, $name, $control_args ) {
@@ -9,7 +13,7 @@ class OP_Control_Radioimage extends Optimalpress_Control {
 		parent::__construct( $type, $name, $control_args );
 	
 		$this->items	= isset( $control_args['items'] ) && is_array( $control_args['items'] ) ? $control_args['items'] : array();
-			
+	
 	}
 	
 	public function enqueue_scripts_styles() {
@@ -27,7 +31,7 @@ class OP_Control_Radioimage extends Optimalpress_Control {
 		$value = sanitize_text_field( $field_value );
 
 		return $value;
-			
+	
 	}
 
 	protected function render_field( $value, $name ) {
@@ -38,7 +42,7 @@ class OP_Control_Radioimage extends Optimalpress_Control {
 			<?php foreach( $this->items as $item ): ?>
 			<label>
 				<?php $checked = ( $item['value'] == $value ); ?>
-				<input <?php if( $checked ) echo 'checked'; ?> class="op-input op-hide <?php echo $this->field_classes; ?><?php if( $checked ) echo " checked"; ?>" type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $item['value'] ); ?>" />
+				<input <?php if( $checked ) echo 'checked'; ?> class="op-input op-hide <?php echo esc_attr( $this->field_classes ); ?><?php if( $checked ) echo " checked"; ?>" type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $item['value'] ); ?>" />
 				<img src="<?php echo esc_attr( $item['img'] ); ?>" alt="<?php echo esc_attr( $item['label'] ); ?>" title="<?php echo esc_attr( $item['label'] ); ?>" class="op-image-item" />
 			</label>
 			<?php endforeach; ?>

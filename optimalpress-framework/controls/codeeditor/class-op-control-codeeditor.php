@@ -2,6 +2,10 @@
 
 class OP_Control_CodeEditor extends Optimalpress_Control {
 	
+	/**
+	 * Format mode for the code editor. Possible Values: css, html, js.
+	 * @var string
+	 */
 	private $mode;
 	
 	public function __construct( $type, $name, $control_args ) {
@@ -18,7 +22,7 @@ class OP_Control_CodeEditor extends Optimalpress_Control {
 		wp_enqueue_script( 'optimalpress-codeeditor', OP_URL . '/controls/' . $this->type . '/js/op-codeeditor.js', array('jquery'), '1.0', true );
 		
 		return;
-			
+		
 	}
 	
 	public function validate( $field_value ) {
@@ -31,7 +35,7 @@ class OP_Control_CodeEditor extends Optimalpress_Control {
 	
 		?>
 		<div class="input op-control-codeeditor">
-			<textarea class="op-input hidden <?php echo $this->field_classes; ?>" name="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $value ); ?></textarea>
+			<textarea class="op-input hidden <?php echo esc_attr( $this->field_classes ); ?>" name="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $value ); ?></textarea>
 			<div class="op-js-codeeditor" data-mode="<?php echo esc_attr( $this->mode ); ?>"></div>
 		</div>
 		<?php

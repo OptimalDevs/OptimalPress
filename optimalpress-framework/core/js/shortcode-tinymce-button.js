@@ -9,7 +9,7 @@
 		
 			init: function( ed, url ) {
 			
-				var cmd_cb = function(name) {
+				var cmd_cb = function( name ) {
 					return function() {
 						$( '#' + name + '_modal' ).css( { visibility: 'visible' } );
 						$( '.op-modal-overlay' ) .show();
@@ -38,7 +38,6 @@
 	}
 
 })(jQuery);
-
 
 for( var i = 0; i < op_sg.length; i++ ){
 	tinymce.PluginManager.add( op_sg[i].name, tinymce.plugins[op_sg[i].name] );

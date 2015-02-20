@@ -1,7 +1,6 @@
 <?php
 
 class OP_Control_Header extends Optimalpress_Control {
-
 	
 	public function __construct( $type, $name, $control_args ) {
 		
@@ -12,7 +11,7 @@ class OP_Control_Header extends Optimalpress_Control {
 	public function validate( $field_value ) {
 	
 		return null;
-			
+	
 	}
 
 	public function render( $value, $name = false ) {
@@ -20,7 +19,7 @@ class OP_Control_Header extends Optimalpress_Control {
 		$name	= ( ! $name ) ? $this->name : $name; 
 		
 		?>
-		<div class="op-field not-sc op-control-header-wrapper <?php echo $this->container_classes; ?>" id="field-<?php echo esc_attr( $name ); ?>" >
+		<div class="op-field not-sc op-control-header-wrapper <?php echo esc_attr( $this->container_classes ); ?>" id="field-<?php echo esc_attr( $name ); ?>" >
 
 			<div class="title" ><?php echo esc_attr( $this->label ); ?></div>
 			<?php if( ! empty( $this->description ) ) : ?>

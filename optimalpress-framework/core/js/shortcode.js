@@ -15,15 +15,15 @@ jQuery( document ).ready( function($) {
 	$( '<div class="op-modal-overlay" />' ).insertAfter( '#wpfooter' );	
 	
 	//Close all headings	
-	$('.op-modal .op-element' ).addClass('closed');
+	$( '.op-modal .op-element' ).addClass( 'closed' );
 	
 	/*
 	 * Menu change tabs.
 	 */	
 	$( '.op-modal .op-menu a' ).on( 'click', function( e ) {
 	
-		$(this).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-list' ).removeClass( 'op-current' );
-		$(this).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-' + $(this).attr( 'href' ).replace( '#', '' ) ).addClass( 'op-current' );
+		$( this ).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-list' ).removeClass( 'op-current' );
+		$( this ).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-' + $( this ).attr( 'href' ).replace( '#', '' ) ).addClass( 'op-current' );
 		
 	});
 	
@@ -32,15 +32,15 @@ jQuery( document ).ready( function($) {
 	 */	
 	$( '.op-modal .op-element-heading' ).on( 'click', function(e) {
 		
-		var beforeClosed = $(this).parents( '.op-element' ).hasClass( 'closed' );
+		var beforeClosed = $( this ).parents( '.op-element' ).hasClass( 'closed' );
 		
-		$(this).parents( '.op-modal' ).find( '.op-element' ).addClass( 'closed' );
+		$( this ).parents( '.op-modal' ).find( '.op-element' ).addClass( 'closed' );
 		
 		if ( beforeClosed ){
-			$(this).parents( '.op-element' ).addClass( 'closed' );
+			$( this ).parents( '.op-element' ).addClass( 'closed' );
 		}
 		else{
-			$(this).parents( '.op-element' ).removeClass( 'closed' );
+			$( this ).parents( '.op-element' ).removeClass( 'closed' );
 		}
 		
 	});
@@ -51,9 +51,9 @@ jQuery( document ).ready( function($) {
 	$( '.op-modal .op-insert' ).bind( 'click.op_sc_insert', function(e){
 	
 		e.preventDefault();
-		var $modal  = $(this).parents( '.op-modal' ),
-			$parent = $(this).parents( '.op-element' ),
-			$form   = $(this).parents( '.op-element-form' ),
+		var $modal  = $( this ).parents( '.op-modal' ),
+			$parent = $( this ).parents( '.op-element' ),
+			$form   = $( this ).parents( '.op-element-form' ),
 			$fields = $form.find( '.op-field:not(".not-sc")' ),
 			values  = {},
 			code    = $parent.find( '.op-code' ).first().html(),
@@ -61,18 +61,18 @@ jQuery( document ).ready( function($) {
 
 		$fields.each(function(i){
 		
-			var $input = $(this).find( ':not(div).op-input' ),
+			var $input = $( this ).find( ':not(div).op-input' ),
 				name   = $input.attr( 'name' ),
-				type   = $(this).attr( 'data-op-type' );
+				type   = $( this ).attr( 'data-op-type' );
 				
 			var fieldValues 	= '';
 		
-			switch( $input.attr('type') ){
+			switch( $input.attr( 'type' ) ){
 			
 				case 'checkbox':
 				case 'radio':
 					
-					fieldValues = $input.is(':checked');
+					fieldValues = $input.is( ':checked' );
 
 					if( $input.length > 1 ) {	
 
@@ -80,9 +80,9 @@ jQuery( document ).ready( function($) {
 						
 						$input.each( function(){
 						
-							if( jQuery(this).is(':checked') ){
+							if( jQuery( this ).is( ':checked' ) ){
 							
-								fieldValues.push( jQuery(this).val() );
+								fieldValues.push( jQuery( this ).val() );
 								
 							}
 							
@@ -95,21 +95,21 @@ jQuery( document ).ready( function($) {
 				default:
 					
 					fieldValues = $input.val();
-					if( ! fieldValues ){
-						fieldValues = '';
-					}
+		
+					fieldValues = ! fieldValues ? '' : fieldValues;
+
 					break;
 			}
-					
+	
 			values[name] = fieldValues
-				
+	
 		});
 
 		for( var name in values ) {
 		
 			if( values.hasOwnProperty(name) ) {
 			
-				atts += ( " " + name.replace('[]', '').replace('[url]', '') + '="' + values[name] + '"' );
+				atts += ( " " + name.replace( '[]', '' ).replace( '[url]', '' ) + '="' + values[name] + '"' );
 			}
 			
 		}
@@ -123,7 +123,7 @@ jQuery( document ).ready( function($) {
 		$( '.op-element' ).removeClass( 'active' );
 		$modal.css( { visibility: 'hidden' } );
 		$( '.op-modal-overlay' ).hide();
-		$(this).closest( 'form' ).find( 'input[type=text], textarea' ).val('');
+		$( this ).closest( 'form' ).find( 'input[type=text], textarea' ).val( '' );
 		
 	});
 	
@@ -162,7 +162,7 @@ jQuery( document ).ready( function($) {
 		var element = document.createElement( 'div' );
 
 		function decodeHTMLEntities (str) {
-			if(str && typeof str === 'string') {
+			if( str && typeof str === 'string' ) {
 				// strip script/html tags
 				str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
 				str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
@@ -187,14 +187,14 @@ jQuery( document ).ready( function($) {
 
 		$modal.css( { visibility: 'hidden' } );
 		$( '.op-modal-overlay' ).hide();
-		$modal.find( 'input[type=text], textarea' ).val('');
+		$modal.find( 'input[type=text], textarea' ).val( '' );
 	
 	});
 	
 	/*
 	 * Close Modal by clicking "x" Button or cancel button.
 	 */
-	$( '.op-close-modal, .op-cancel' ).click(function( e){
+	$( '.op-close-modal, .op-cancel' ).click(function(e){
 		
 		e.preventDefault();
 		
