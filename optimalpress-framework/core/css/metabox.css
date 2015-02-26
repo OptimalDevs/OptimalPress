@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 640px) {
 	.op-metabox .op-field, .op-metabox .op-field .label, .op-metabox .op-field .field {
-		display: block;
+		display: block !important;
 		width: auto;
 		clear: both;
 	}
@@ -56,7 +56,7 @@
 
 @media only screen and (min-width: 851px) and (max-width: 1132px) {
 	.op-metabox .op-field, .op-metabox .op-field .label, .op-metabox .op-field .field {
-		display: block;
+		display: block !important;
 		width: auto;
 		clear: both;
 	}
