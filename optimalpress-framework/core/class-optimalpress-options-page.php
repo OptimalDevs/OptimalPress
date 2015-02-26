@@ -353,7 +353,7 @@ class Optimalpress_Options_Page {
 								<?php else: ?>
 								<li>
 								<?php endif; ?>
-									<a href="#<?php echo $menu['name'] ?>" class="op-menu-goto">
+									<a href="#selected-menu-section-<?php echo $menu['name'] ?>" class="op-menu-goto">
 								
 										<?php
 										$icon = false;
@@ -382,7 +382,7 @@ class Optimalpress_Options_Page {
 							
 							<?php foreach( $this->menus_inst as $menu ): ?>
 								
-								<div id="op-<?php echo esc_attr( $menu['name'] ); ?>" class="op-panel">
+								<div id="op-selected-menu-section-<?php echo esc_attr( $menu['name'] ); ?>" class="op-panel">
 									<h2><span><?php echo esc_html( $menu['title'] ); ?></span></h2>
 									<div class="op-controls">
 										<?php 

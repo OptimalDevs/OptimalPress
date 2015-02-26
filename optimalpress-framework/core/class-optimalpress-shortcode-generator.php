@@ -155,9 +155,9 @@ class Optimalpress_Shortcode_Generator {
 					<?php foreach( $this->menu_inst as $menu ): ?>
 					
 						<?php if( reset( $this->menu_inst ) == $menu ): ?>
-							<li class="op-current"><a href="#<?php echo str_replace( ' ', '_', $menu['title'] ); ?>"><?php echo esc_attr( $menu['title'] ); ?></li></a>		
+							<li><a class="op-menu-item-current" href="#selected-menu-section-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>"><?php echo esc_attr( $menu['title'] ); ?></li></a>		
 						<?php else: ?>						
-							<li><a href="#<?php echo str_replace( ' ', '_', $menu['title'] ); ?>"><?php echo esc_attr( $menu['title'] ); ?></li></a>		
+							<li><a href="#selected-menu-section-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>"><?php echo esc_attr( $menu['title'] ); ?></li></a>		
 						<?php endif; ?>
 						
 					<?php endforeach; ?>
@@ -168,9 +168,9 @@ class Optimalpress_Shortcode_Generator {
 						<?php foreach( $this->menu_inst as $menu ): ?>
 						
 							<?php if( reset( $this->menu_inst ) == $menu ) : ?>
-								<ul class="op-current op-sub-menu-list op-sub-menu-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>">
+								<ul class="op-current op-sub-menu-list op-sub-menu-selected-menu-section-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>">
 							<?php else : ?>
-								<ul class="op-hide op-sub-menu-list op-sub-menu-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>">
+								<ul class="op-hide op-sub-menu-list op-sub-menu-selected-menu-section-<?php echo str_replace( ' ', '_', $menu['title'] ); ?>">
 							<?php endif; ?>
 							
 							<?php foreach( $menu['elements'] as $key => $element ): ?>

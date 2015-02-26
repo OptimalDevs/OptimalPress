@@ -21,7 +21,10 @@ jQuery( document ).ready( function($) {
 	 * Menu change tabs.
 	 */	
 	$( '.op-modal .op-menu a' ).on( 'click', function( e ) {
-	
+		
+		$( '.op-modal .op-wrapper .op-menu li a' ).removeClass( 'op-menu-item-current' );
+		$( this ).addClass( 'op-menu-item-current' );
+		
 		$( this ).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-list' ).removeClass( 'op-current' );
 		$( this ).parents( '.op-menu' ).siblings( '.op-main' ).find( '.op-sub-menu-' + $( this ).attr( 'href' ).replace( '#', '' ) ).addClass( 'op-current' );
 		
