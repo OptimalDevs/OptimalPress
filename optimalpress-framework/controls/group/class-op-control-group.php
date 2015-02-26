@@ -208,8 +208,7 @@ class OP_Control_Group extends Optimalpress_Control {
 		}
 		
 		return $return;
-		
-		
+				
 	}
 	
 	public function get_controls_used(){

@@ -229,9 +229,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 				}
 				
 				if ( sw == 0){
-					field.hide( 'slow' );
+					field.hide();
 				}else{
-					field.show( 'slow' );
+					field.show();
 				}
 				
 			}
@@ -239,9 +239,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			else{
 			
 				if( fieldValues.indexOf( dependencyValue ) >= 0 || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ) {
-					field.show( 'slow' );
+					field.show();
 				}else{
-					field.hide( 'slow' );
+					field.hide();
 				}
 			}
 		
@@ -253,9 +253,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			if ( jQuery.isArray( dependencyValue ) ) {
 				
 				if( dependencyValue.indexOf( fieldValues ) >=0 || ( fieldValues.length == 0 && dependencyValue == '{{not-empty}}' ) ) {
-					field.show( 'slow' );
+					field.show();
 				}else{
-					field.hide( 'slow' );
+					field.hide();
 				}
 				
 			}
@@ -263,9 +263,9 @@ function OpCreateDependencyEvents( dependsOfField, field, dependencyValue, group
 			else{
 				
 				if( fieldValues == dependencyValue || ( fieldValues.length > 0 && dependencyValue == '{{not-empty}}' ) ){
-					field.show( 'slow' );
+					field.show();
 				}else{
-					field.hide( 'slow' );
+					field.hide();
 				}
 				
 			}

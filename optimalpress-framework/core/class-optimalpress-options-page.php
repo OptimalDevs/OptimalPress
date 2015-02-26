@@ -382,7 +382,7 @@ class Optimalpress_Options_Page {
 							
 							<?php foreach( $this->menus_inst as $menu ): ?>
 								
-								<div id="<?php echo esc_attr( $menu['name'] ); ?>" class="op-panel">
+								<div id="op-<?php echo esc_attr( $menu['name'] ); ?>" class="op-panel">
 									<h2><span><?php echo esc_html( $menu['title'] ); ?></span></h2>
 									<div class="op-controls">
 										<?php 

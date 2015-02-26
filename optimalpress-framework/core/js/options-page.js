@@ -22,7 +22,7 @@ jQuery( window ).load( function() {
 	
 	if (  window.location.hash ) {
 	
-		jQuery( '#' +  window.location.hash.replace( '#', '' ) ).addClass( 'op-current' );
+		jQuery( '#op-' +  window.location.hash.replace( '#', '' ) ).addClass( 'op-current' );
 		jQuery( 'a[href="' +  window.location.hash + '"]' ).parent().addClass( 'op-current' );
 
 	}else{
@@ -37,13 +37,10 @@ jQuery( window ).load( function() {
 	 */
 	jQuery( '.op-menu-goto' ).on( 'click', function( e ) {
 
-		e.preventDefault(); //si hago esto no cambia el anchor pero ya no se produce el salto
-		
 		jQuery( '.op-menus li' ).removeClass( 'op-current' );
 		jQuery( '.op-panel' ).removeClass( 'op-current' );
-		jQuery( '#' + jQuery( this ).attr( 'href' ).replace( '#', '' ) ).addClass( 'op-current' );
+		jQuery( '#op-' + jQuery( this ).attr( 'href' ).replace( '#', '' ) ).addClass( 'op-current' );
 		jQuery( this ).parent().addClass( 'op-current' );
-		//jQuery( 'html,body' ).delay(10).animate({scrollTop: 0}, 800);
 		
 	});
 	
