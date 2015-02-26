@@ -75,6 +75,7 @@
 	padding-top: 4rem;
 	width: 800px;
 	margin-left: -440px;
+	overflow: hidden;
 }
 
 .op-modal h1 {
@@ -88,7 +89,7 @@
 
 .op-modal .op-scroll-container {
 	height: 100%;
-	overflow-y: scroll;
+	
 }
 
 .op-modal .op-wrapper {
@@ -111,17 +112,27 @@
 	border-right: 1px solid #dfdfdf;
 }
 
+.op-modal .op-wrapper .op-menu .op-menu-item-current {
+	border-bottom: 2px solid;
+}
+
+.op-modal .op-wrapper .op-menu li a:focus {
+	 -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 /*
  * Right Side
  *
  */
  
 .op-modal .op-wrapper .op-main {
-	display: table-cell;
 	padding-left: 20px;
 	padding-right: 10px;
 	vertical-align: top;
 	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
 }
 
 /*
@@ -132,6 +143,11 @@
 .op-wrapper .op-main .op-element-heading {
 	cursor: default;
 	margin: 0;
+}
+
+.op-wrapper .op-main .op-element:not(.closed) .op-element-heading{
+	background-color: #2EA2CC;
+	color: #fff;
 }
 
 .op-wrapper .op-main .op-element-heading span {
