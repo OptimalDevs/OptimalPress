@@ -40,9 +40,9 @@ function opInitDependency( opDependencies ) {
 				});
 				
 			} //Normal dependencies
-			else { 
-
-				var dependsOfField	= jQuery( '#' + opDependency.id + ' input[name*="' + dependency.depends_of  + '"], #' + opDependency.id + ' select[name*="' + dependency.depends_of  + '"],' + ' #' + opDependency.id + ' textarea[name*="' + dependency.depends_of  + '"]' );
+			else {
+				
+				var dependsOfField	= jQuery( 'input[name*="' + dependency.depends_of  + '"], select[name*="' + dependency.depends_of  + '"],' + ' textarea[name*="' + dependency.depends_of  + '"]' );
 				var opField			= jQuery( '#' + opDependency.id + ' #field-' + dependency.field );
 				opOnLoadDependency( dependsOfField, opField, dependency.values );
 				
@@ -66,7 +66,7 @@ function opInitDependency( opDependencies ) {
 function opOnLoadDependency( dependsOfField, opField, dependencyValues ){
 
 	var fieldValues 	= '';
-	
+
 	switch( dependsOfField.attr( 'type' ) ){
 	
 		case 'checkbox':
