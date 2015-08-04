@@ -441,7 +441,7 @@ class Optimalpress_Options_Page {
 		
 		foreach( $this->controls_inst as $control ) {
 
-			$field_value	= ( isset( $_POST[ $control->name ] ) ) ? $_POST[ $control->name ] : null;
+			$field_value	= ( isset( $_POST[ $control->name ] ) ) ? stripslashes_deep( $_POST[ $control->name ] ) : null;
 			$field_value 	= apply_filters( 'op_before_validate_option_field', $field_value, $this->option_key, $control->name );
 			$field_value 	= $control->validate( $field_value  );
 			$field_value 	= apply_filters( 'op_after_validate_option_field', $field_value, $this->option_key, $control->name );
