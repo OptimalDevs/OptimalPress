@@ -10,8 +10,7 @@ class OP_Control_TextArea extends Optimalpress_Control {
 	
 	public function validate( $field_value ) {
 	
-		// Sanitize the user input.
-		$value = sanitize_text_field( $field_value );
+		$value = $field_value;
 
 		return $value;
 	

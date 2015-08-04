@@ -10,7 +10,7 @@ class OP_Control_TextBox extends Optimalpress_Control {
 		
 	public function validate( $field_value ) {
 		
-		$value = sanitize_text_field( $field_value );
+		$value = $field_value;
 
 		return $value;
 			
